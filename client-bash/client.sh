@@ -1605,7 +1605,7 @@ call_getAWSCostReports() {
     local query_parameter_names=(delta filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/aws/costs/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/aws/costs/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1641,7 +1641,7 @@ call_getAWSInstanceReports() {
     local query_parameter_names=(filter group_by order_by units offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/aws/instance-types/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/aws/instance-types/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1677,7 +1677,7 @@ call_getAWSStorageReports() {
     local query_parameter_names=(filter group_by order_by units offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/aws/storage/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/aws/storage/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1713,7 +1713,7 @@ call_createCostModels() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1791,7 +1791,7 @@ call_deleteCostModel() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1827,7 +1827,7 @@ call_getCostModel() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1863,7 +1863,7 @@ call_listCostModels() {
     local query_parameter_names=(offset limit provider_uuid source_type name)
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1899,7 +1899,7 @@ call_updateCostModel() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1977,7 +1977,7 @@ call_getOpenShiftAWSCostReports() {
     local query_parameter_names=(delta filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/infrastructures/aws/costs/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/infrastructures/aws/costs/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2013,7 +2013,7 @@ call_getOpenShiftAWSInventoryInstanceReport() {
     local query_parameter_names=(filter group_by order_by units offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/infrastructures/aws/instance-types/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/infrastructures/aws/instance-types/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2049,7 +2049,7 @@ call_getOpenShiftAWSInventoryStorageReport() {
     local query_parameter_names=(filter group_by order_by units offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/infrastructures/aws/storage/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/infrastructures/aws/storage/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2085,7 +2085,7 @@ call_getOpenShiftComputeReports() {
     local query_parameter_names=(filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/compute/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/compute/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2121,7 +2121,7 @@ call_getOpenShiftCostReports() {
     local query_parameter_names=(delta filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/costs/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/costs/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2157,7 +2157,7 @@ call_getOpenShiftMemoryReports() {
     local query_parameter_names=(filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/memory/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/memory/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2193,7 +2193,7 @@ call_getOpenShiftVolumeReports() {
     local query_parameter_names=(filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/volumes/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/volumes/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2229,7 +2229,7 @@ call_createProvider() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2307,7 +2307,7 @@ call_deleteProvider() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2343,7 +2343,7 @@ call_getProvider() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/{uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/providers/{uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2379,7 +2379,7 @@ call_listProviders() {
     local query_parameter_names=(type name offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2415,7 +2415,7 @@ call_getStatus() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/status/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/status/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2451,7 +2451,7 @@ call_getAWSTagData() {
     local query_parameter_names=(filter key_only offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/tags/aws/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/tags/aws/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2487,7 +2487,7 @@ call_getOpenShiftAWSTagData() {
     local query_parameter_names=(filter key_only offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/tags/openshift/infrastructures/aws/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/tags/openshift/infrastructures/aws/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2523,7 +2523,7 @@ call_getOpenShiftTagData() {
     local query_parameter_names=(filter key_only offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/tags/openshift/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/tags/openshift/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2559,7 +2559,7 @@ call_createUserPreference() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2637,7 +2637,7 @@ call_deleteUserPreference() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2673,7 +2673,7 @@ call_getUserPreference() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2709,7 +2709,7 @@ call_listUserPreferences() {
     local query_parameter_names=(offset limit  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2745,7 +2745,7 @@ call_updateUserPreference() {
     local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi

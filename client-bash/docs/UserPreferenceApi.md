@@ -1,6 +1,6 @@
 # UserPreferenceApi
 
-All URIs are relative to */r/insights/platform/cost-management/v1*
+All URIs are relative to */api/cost-management/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

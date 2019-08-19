@@ -296,47 +296,187 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "createCostModel[]" \
-            "createProvider[]" \
-            "createUserPreference[]" \
-            "destroyCostModel[]" \
-            "destroyProvider[]" \
-            "destroyUserPreference[]" \
-            "listAWSCosts[]" \
-            "listAWSInstanceTypes[]" \
-            "listAWSStorages[]" \
-            "listAWSTags[]" \
-            "listCostModelMetricsMaps[]" \
-            "listCostModels[]" \
-            "listOCPAWSCosts[]" \
-            "listOCPAWSInstanceTypes[]" \
-            "listOCPAWSStorages[]" \
-            "listOCPAWSTags[]" \
-            "listOCPCosts[]" \
-            "listOCPCpus[]" \
-            "listOCPMemorys[]" \
-            "listOCPTags[]" \
-            "listOCPVolumes[]" \
-            "listProviders[]" \
-            "listStatus[]" \
-            "listUserPreferences[]" \
-            "partialUpdateCostModel[]" \
-            "partialUpdateUserPreference[]" \
-            "retrieveCostModel[]" \
-            "retrieveProvider[]" \
-            "retrieveUserPreference[]" \
-            "updateCostModel[]" \
-            "updateUserPreference[]" 
+            "getAWSCostReports[Query to obtain cost reports]" \
+            "getAWSInstanceReports[Query to obtain AWS instance type data]" \
+            "getAWSStorageReports[Query to obtain AWS storage data]"             "createCostModels[Create a new cost model.]" \
+            "deleteCostModel[Delete a Cost Model]" \
+            "getCostModel[Get a Cost Model.]" \
+            "listCostModels[List the cost models]" \
+            "updateCostModel[Update a Cost Model]"             "getOpenShiftAWSCostReports[Query to obtain OpenShift on AWS cost reports]" \
+            "getOpenShiftAWSInventoryInstanceReport[Query to obtain OpenShift on AWS instance data]" \
+            "getOpenShiftAWSInventoryStorageReport[Query to obtain OpenShift on AWS storage data]" \
+            "getOpenShiftComputeReports[Query to obtain OpenShift compute usage information]" \
+            "getOpenShiftCostReports[Query to obtain cost reports]" \
+            "getOpenShiftMemoryReports[Query to obtain OpenShift memory usage information]" \
+            "getOpenShiftVolumeReports[Query to obtain OpenShift volume usage information]"             "createProvider[Create a provider]" \
+            "deleteProvider[Delete a provider]" \
+            "getProvider[Get a provider]" \
+            "listProviders[List the providers]"             "getStatus[Obtain server status]"             "getAWSTagData[Query to obtain AWS tags]" \
+            "getOpenShiftAWSTagData[Query to obtain OpenShift-on-AWS tags]" \
+            "getOpenShiftTagData[Query to obtain OpenShift tags]"             "createUserPreference[Create a user preference]" \
+            "deleteUserPreference[Delete a user preference]" \
+            "getUserPreference[Get a user preference]" \
+            "listUserPreferences[List the user's preferences]" \
+            "updateUserPreference[Update a user preference]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
     ;;
   args)
     case $line[1] in
-      createCostModel)
+      getAWSCostReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "delta=:[QUERY] Toggle to include delta values in report."
+"filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAWSInstanceReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"units=:[QUERY] The units used to report data."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAWSStorageReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"units=:[QUERY] The units used to report data."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      createCostModels)
         local -a _op_arguments
         _op_arguments=(
                               )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      deleteCostModel)
+        local -a _op_arguments
+        _op_arguments=(
+          "cost_model_uuid=:[PATH] UUID of Cost Model to get"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getCostModel)
+        local -a _op_arguments
+        _op_arguments=(
+          "cost_model_uuid=:[PATH] UUID of Cost Model to get"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      listCostModels)
+        local -a _op_arguments
+        _op_arguments=(
+                    "offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+"provider_uuid=:[QUERY] Filter response on provider uuid."
+"source_type=:[QUERY] Filter response on provider source type."
+"name=:[QUERY] Filter response on cost model name."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      updateCostModel)
+        local -a _op_arguments
+        _op_arguments=(
+          "cost_model_uuid=:[PATH] UUID of Cost Model to get"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftAWSCostReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "delta=:[QUERY] Toggle to include delta values in report."
+"filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftAWSInventoryInstanceReport)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"units=:[QUERY] The units used to report data."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftAWSInventoryStorageReport)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"units=:[QUERY] The units used to report data."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftComputeReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftCostReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "delta=:[QUERY] Toggle to include delta values in report."
+"filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftMemoryReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftVolumeReports)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the report as a URL encoded dictionary."
+"group_by=:[QUERY] The grouping to apply to the report as a URL encoded dictionary."
+"order_by=:[QUERY] The ordering to apply to the report as a URL encoded dictionary."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       createProvider)
@@ -345,260 +485,101 @@ case $state in
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
+      deleteProvider)
+        local -a _op_arguments
+        _op_arguments=(
+          "uuid=:[PATH] ID of provider to delete"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getProvider)
+        local -a _op_arguments
+        _op_arguments=(
+          "uuid=:[PATH] ID of provider to get"
+                    )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      listProviders)
+        local -a _op_arguments
+        _op_arguments=(
+                    "type=:[QUERY] The type of provider to filter for."
+"name=:[QUERY] The name of the provider to filter for."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getStatus)
+        local -a _op_arguments
+        _op_arguments=(
+                              )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getAWSTagData)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the query as a URL encoded dictionary."
+"key_only=true:[QUERY] Flag to indicate whether or not only the tag key values will be returned."
+          "key_only=false:[QUERY] Flag to indicate whether or not only the tag key values will be returned."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftAWSTagData)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the query as a URL encoded dictionary."
+"key_only=true:[QUERY] Flag to indicate whether or not only the tag key values will be returned."
+          "key_only=false:[QUERY] Flag to indicate whether or not only the tag key values will be returned."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
+      getOpenShiftTagData)
+        local -a _op_arguments
+        _op_arguments=(
+                    "filter=:[QUERY] The filter to apply to the query as a URL encoded dictionary."
+"key_only=true:[QUERY] Flag to indicate whether or not only the tag key values will be returned."
+          "key_only=false:[QUERY] Flag to indicate whether or not only the tag key values will be returned."
+"offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
+          )
+        _describe -t actions 'operations' _op_arguments -S '' && ret=0
+        ;;
       createUserPreference)
         local -a _op_arguments
         _op_arguments=(
                               )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      destroyCostModel)
+      deleteUserPreference)
         local -a _op_arguments
         _op_arguments=(
-          "uuid=:[PATH] A UUID string identifying this cost model."
-          "source_type=:[QUERY] source_type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      destroyProvider)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] "
-          "type=:[QUERY] type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      destroyUserPreference)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] "
+          "pref_uuid=:[PATH] ID of preference to get"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      listAWSCosts)
+      getUserPreference)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listAWSInstanceTypes)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listAWSStorages)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listAWSTags)
-        local -a _op_arguments
-        _op_arguments=(
-                    "filter=:[QUERY] The  URL encoded filter to apply to the query"
-"key_only=true:[QUERY] The  URL encoded key_only to apply to the query"
-          "key_only=false:[QUERY] The  URL encoded key_only to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listCostModelMetricsMaps)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] Number of results to return per page."
-"offset=:[QUERY] The initial index from which to return the results."
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listCostModels)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] Number of results to return per page."
-"offset=:[QUERY] The initial index from which to return the results."
-"source_type=:[QUERY] source_type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPAWSCosts)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPAWSInstanceTypes)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPAWSStorages)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPAWSTags)
-        local -a _op_arguments
-        _op_arguments=(
-                    "filter=:[QUERY] The  URL encoded filter to apply to the query"
-"key_only=true:[QUERY] The  URL encoded key_only to apply to the query"
-          "key_only=false:[QUERY] The  URL encoded key_only to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPCosts)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPCpus)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPMemorys)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPTags)
-        local -a _op_arguments
-        _op_arguments=(
-                    "filter=:[QUERY] The  URL encoded filter to apply to the query"
-"key_only=true:[QUERY] The  URL encoded key_only to apply to the query"
-          "key_only=false:[QUERY] The  URL encoded key_only to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listOCPVolumes)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] The  URL encoded limit to apply to the query"
-"offset=:[QUERY] The  URL encoded offset to apply to the query"
-"units=:[QUERY] The  URL encoded units to apply to the query"
-"delta=:[QUERY] The  URL encoded delta to apply to the query"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listProviders)
-        local -a _op_arguments
-        _op_arguments=(
-                    "limit=:[QUERY] Number of results to return per page."
-"offset=:[QUERY] The initial index from which to return the results."
-"type=:[QUERY] type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      listStatus)
-        local -a _op_arguments
-        _op_arguments=(
-                              )
+          "pref_uuid=:[PATH] ID of preference to get"
+                    )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       listUserPreferences)
         local -a _op_arguments
         _op_arguments=(
-                    "limit=:[QUERY] Number of results to return per page."
-"offset=:[QUERY] The initial index from which to return the results."
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      partialUpdateCostModel)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] A UUID string identifying this cost model."
-          "source_type=:[QUERY] source_type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      partialUpdateUserPreference)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      retrieveCostModel)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] A UUID string identifying this cost model."
-          "source_type=:[QUERY] source_type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      retrieveProvider)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] "
-          "type=:[QUERY] type"
-"name=:[QUERY] name"
-          )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      retrieveUserPreference)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] "
-                    )
-        _describe -t actions 'operations' _op_arguments -S '' && ret=0
-        ;;
-      updateCostModel)
-        local -a _op_arguments
-        _op_arguments=(
-          "uuid=:[PATH] A UUID string identifying this cost model."
-          "source_type=:[QUERY] source_type"
-"name=:[QUERY] name"
+                    "offset=:[QUERY] Parameter for selecting the offset of data."
+"limit=:[QUERY] Parameter for selecting the amount of data in a returned."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
       updateUserPreference)
         local -a _op_arguments
         _op_arguments=(
-          "uuid=:[PATH] "
+          "pref_uuid=:[PATH] ID of preference to get"
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

@@ -95,93 +95,99 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
-operation_parameters_minimum_occurrences["createCostModel:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_minimum_occurrences["createProvider:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_minimum_occurrences["createUserPreference:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_minimum_occurrences["destroyCostModel:::uuid"]=1
-operation_parameters_minimum_occurrences["destroyCostModel:::source_type"]=0
-operation_parameters_minimum_occurrences["destroyCostModel:::name"]=0
-operation_parameters_minimum_occurrences["destroyProvider:::uuid"]=1
-operation_parameters_minimum_occurrences["destroyProvider:::type"]=0
-operation_parameters_minimum_occurrences["destroyProvider:::name"]=0
-operation_parameters_minimum_occurrences["destroyUserPreference:::uuid"]=1
-operation_parameters_minimum_occurrences["listAWSCosts:::limit"]=0
-operation_parameters_minimum_occurrences["listAWSCosts:::offset"]=0
-operation_parameters_minimum_occurrences["listAWSCosts:::delta"]=0
-operation_parameters_minimum_occurrences["listAWSCosts:::units"]=0
-operation_parameters_minimum_occurrences["listAWSInstanceTypes:::limit"]=0
-operation_parameters_minimum_occurrences["listAWSInstanceTypes:::offset"]=0
-operation_parameters_minimum_occurrences["listAWSInstanceTypes:::delta"]=0
-operation_parameters_minimum_occurrences["listAWSInstanceTypes:::units"]=0
-operation_parameters_minimum_occurrences["listAWSStorages:::limit"]=0
-operation_parameters_minimum_occurrences["listAWSStorages:::offset"]=0
-operation_parameters_minimum_occurrences["listAWSStorages:::delta"]=0
-operation_parameters_minimum_occurrences["listAWSStorages:::units"]=0
-operation_parameters_minimum_occurrences["listAWSTags:::filter"]=0
-operation_parameters_minimum_occurrences["listAWSTags:::key_only"]=0
-operation_parameters_minimum_occurrences["listCostModelMetricsMaps:::limit"]=0
-operation_parameters_minimum_occurrences["listCostModelMetricsMaps:::offset"]=0
-operation_parameters_minimum_occurrences["listCostModels:::limit"]=0
+operation_parameters_minimum_occurrences["getAWSCostReports:::delta"]=0
+operation_parameters_minimum_occurrences["getAWSCostReports:::filter"]=0
+operation_parameters_minimum_occurrences["getAWSCostReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getAWSCostReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getAWSCostReports:::offset"]=0
+operation_parameters_minimum_occurrences["getAWSCostReports:::limit"]=0
+operation_parameters_minimum_occurrences["getAWSInstanceReports:::filter"]=0
+operation_parameters_minimum_occurrences["getAWSInstanceReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getAWSInstanceReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getAWSInstanceReports:::units"]=0
+operation_parameters_minimum_occurrences["getAWSInstanceReports:::offset"]=0
+operation_parameters_minimum_occurrences["getAWSInstanceReports:::limit"]=0
+operation_parameters_minimum_occurrences["getAWSStorageReports:::filter"]=0
+operation_parameters_minimum_occurrences["getAWSStorageReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getAWSStorageReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getAWSStorageReports:::units"]=0
+operation_parameters_minimum_occurrences["getAWSStorageReports:::offset"]=0
+operation_parameters_minimum_occurrences["getAWSStorageReports:::limit"]=0
+operation_parameters_minimum_occurrences["createCostModels:::CostModel"]=1
+operation_parameters_minimum_occurrences["deleteCostModel:::cost_model_uuid"]=1
+operation_parameters_minimum_occurrences["getCostModel:::cost_model_uuid"]=1
 operation_parameters_minimum_occurrences["listCostModels:::offset"]=0
+operation_parameters_minimum_occurrences["listCostModels:::limit"]=0
+operation_parameters_minimum_occurrences["listCostModels:::provider_uuid"]=0
 operation_parameters_minimum_occurrences["listCostModels:::source_type"]=0
 operation_parameters_minimum_occurrences["listCostModels:::name"]=0
-operation_parameters_minimum_occurrences["listOCPAWSCosts:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPAWSCosts:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPAWSCosts:::delta"]=0
-operation_parameters_minimum_occurrences["listOCPAWSCosts:::units"]=0
-operation_parameters_minimum_occurrences["listOCPAWSInstanceTypes:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPAWSInstanceTypes:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPAWSInstanceTypes:::delta"]=0
-operation_parameters_minimum_occurrences["listOCPAWSInstanceTypes:::units"]=0
-operation_parameters_minimum_occurrences["listOCPAWSStorages:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPAWSStorages:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPAWSStorages:::delta"]=0
-operation_parameters_minimum_occurrences["listOCPAWSStorages:::units"]=0
-operation_parameters_minimum_occurrences["listOCPAWSTags:::filter"]=0
-operation_parameters_minimum_occurrences["listOCPAWSTags:::key_only"]=0
-operation_parameters_minimum_occurrences["listOCPCosts:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPCosts:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPCosts:::units"]=0
-operation_parameters_minimum_occurrences["listOCPCosts:::delta"]=0
-operation_parameters_minimum_occurrences["listOCPCpus:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPCpus:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPCpus:::units"]=0
-operation_parameters_minimum_occurrences["listOCPCpus:::delta"]=0
-operation_parameters_minimum_occurrences["listOCPMemorys:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPMemorys:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPMemorys:::units"]=0
-operation_parameters_minimum_occurrences["listOCPMemorys:::delta"]=0
-operation_parameters_minimum_occurrences["listOCPTags:::filter"]=0
-operation_parameters_minimum_occurrences["listOCPTags:::key_only"]=0
-operation_parameters_minimum_occurrences["listOCPVolumes:::limit"]=0
-operation_parameters_minimum_occurrences["listOCPVolumes:::offset"]=0
-operation_parameters_minimum_occurrences["listOCPVolumes:::units"]=0
-operation_parameters_minimum_occurrences["listOCPVolumes:::delta"]=0
-operation_parameters_minimum_occurrences["listProviders:::limit"]=0
-operation_parameters_minimum_occurrences["listProviders:::offset"]=0
+operation_parameters_minimum_occurrences["updateCostModel:::cost_model_uuid"]=1
+operation_parameters_minimum_occurrences["updateCostModel:::CostModel"]=1
+operation_parameters_minimum_occurrences["getOpenShiftAWSCostReports:::delta"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSCostReports:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSCostReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSCostReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSCostReports:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSCostReports:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryInstanceReport:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryInstanceReport:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryInstanceReport:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryInstanceReport:::units"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryInstanceReport:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryInstanceReport:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryStorageReport:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryStorageReport:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryStorageReport:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryStorageReport:::units"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryStorageReport:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSInventoryStorageReport:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftComputeReports:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftComputeReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftComputeReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftComputeReports:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftComputeReports:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftCostReports:::delta"]=0
+operation_parameters_minimum_occurrences["getOpenShiftCostReports:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftCostReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftCostReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftCostReports:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftCostReports:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftMemoryReports:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftMemoryReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftMemoryReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftMemoryReports:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftMemoryReports:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftVolumeReports:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftVolumeReports:::group_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftVolumeReports:::order_by"]=0
+operation_parameters_minimum_occurrences["getOpenShiftVolumeReports:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftVolumeReports:::limit"]=0
+operation_parameters_minimum_occurrences["createProvider:::ProviderIn"]=1
+operation_parameters_minimum_occurrences["deleteProvider:::uuid"]=1
+operation_parameters_minimum_occurrences["getProvider:::uuid"]=1
 operation_parameters_minimum_occurrences["listProviders:::type"]=0
 operation_parameters_minimum_occurrences["listProviders:::name"]=0
-operation_parameters_minimum_occurrences["listUserPreferences:::limit"]=0
+operation_parameters_minimum_occurrences["listProviders:::offset"]=0
+operation_parameters_minimum_occurrences["listProviders:::limit"]=0
+operation_parameters_minimum_occurrences["getAWSTagData:::filter"]=0
+operation_parameters_minimum_occurrences["getAWSTagData:::key_only"]=0
+operation_parameters_minimum_occurrences["getAWSTagData:::offset"]=0
+operation_parameters_minimum_occurrences["getAWSTagData:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSTagData:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSTagData:::key_only"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSTagData:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftAWSTagData:::limit"]=0
+operation_parameters_minimum_occurrences["getOpenShiftTagData:::filter"]=0
+operation_parameters_minimum_occurrences["getOpenShiftTagData:::key_only"]=0
+operation_parameters_minimum_occurrences["getOpenShiftTagData:::offset"]=0
+operation_parameters_minimum_occurrences["getOpenShiftTagData:::limit"]=0
+operation_parameters_minimum_occurrences["createUserPreference:::UserPreference"]=1
+operation_parameters_minimum_occurrences["deleteUserPreference:::pref_uuid"]=1
+operation_parameters_minimum_occurrences["getUserPreference:::pref_uuid"]=1
 operation_parameters_minimum_occurrences["listUserPreferences:::offset"]=0
-operation_parameters_minimum_occurrences["partialUpdateCostModel:::uuid"]=1
-operation_parameters_minimum_occurrences["partialUpdateCostModel:::source_type"]=0
-operation_parameters_minimum_occurrences["partialUpdateCostModel:::name"]=0
-operation_parameters_minimum_occurrences["partialUpdateCostModel:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_minimum_occurrences["partialUpdateUserPreference:::uuid"]=1
-operation_parameters_minimum_occurrences["partialUpdateUserPreference:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_minimum_occurrences["retrieveCostModel:::uuid"]=1
-operation_parameters_minimum_occurrences["retrieveCostModel:::source_type"]=0
-operation_parameters_minimum_occurrences["retrieveCostModel:::name"]=0
-operation_parameters_minimum_occurrences["retrieveProvider:::uuid"]=1
-operation_parameters_minimum_occurrences["retrieveProvider:::type"]=0
-operation_parameters_minimum_occurrences["retrieveProvider:::name"]=0
-operation_parameters_minimum_occurrences["retrieveUserPreference:::uuid"]=1
-operation_parameters_minimum_occurrences["updateCostModel:::uuid"]=1
-operation_parameters_minimum_occurrences["updateCostModel:::source_type"]=0
-operation_parameters_minimum_occurrences["updateCostModel:::name"]=0
-operation_parameters_minimum_occurrences["updateCostModel:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_minimum_occurrences["updateUserPreference:::uuid"]=1
-operation_parameters_minimum_occurrences["updateUserPreference:::UNKNOWN_BASE_TYPE"]=0
+operation_parameters_minimum_occurrences["listUserPreferences:::limit"]=0
+operation_parameters_minimum_occurrences["updateUserPreference:::pref_uuid"]=1
+operation_parameters_minimum_occurrences["updateUserPreference:::UserPreference"]=1
 
 ##
 # This array stores the maximum number of allowed occurrences for parameter
@@ -190,185 +196,197 @@ operation_parameters_minimum_occurrences["updateUserPreference:::UNKNOWN_BASE_TY
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
-operation_parameters_maximum_occurrences["createCostModel:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_maximum_occurrences["createProvider:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_maximum_occurrences["createUserPreference:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_maximum_occurrences["destroyCostModel:::uuid"]=0
-operation_parameters_maximum_occurrences["destroyCostModel:::source_type"]=0
-operation_parameters_maximum_occurrences["destroyCostModel:::name"]=0
-operation_parameters_maximum_occurrences["destroyProvider:::uuid"]=0
-operation_parameters_maximum_occurrences["destroyProvider:::type"]=0
-operation_parameters_maximum_occurrences["destroyProvider:::name"]=0
-operation_parameters_maximum_occurrences["destroyUserPreference:::uuid"]=0
-operation_parameters_maximum_occurrences["listAWSCosts:::limit"]=0
-operation_parameters_maximum_occurrences["listAWSCosts:::offset"]=0
-operation_parameters_maximum_occurrences["listAWSCosts:::delta"]=0
-operation_parameters_maximum_occurrences["listAWSCosts:::units"]=0
-operation_parameters_maximum_occurrences["listAWSInstanceTypes:::limit"]=0
-operation_parameters_maximum_occurrences["listAWSInstanceTypes:::offset"]=0
-operation_parameters_maximum_occurrences["listAWSInstanceTypes:::delta"]=0
-operation_parameters_maximum_occurrences["listAWSInstanceTypes:::units"]=0
-operation_parameters_maximum_occurrences["listAWSStorages:::limit"]=0
-operation_parameters_maximum_occurrences["listAWSStorages:::offset"]=0
-operation_parameters_maximum_occurrences["listAWSStorages:::delta"]=0
-operation_parameters_maximum_occurrences["listAWSStorages:::units"]=0
-operation_parameters_maximum_occurrences["listAWSTags:::filter"]=0
-operation_parameters_maximum_occurrences["listAWSTags:::key_only"]=0
-operation_parameters_maximum_occurrences["listCostModelMetricsMaps:::limit"]=0
-operation_parameters_maximum_occurrences["listCostModelMetricsMaps:::offset"]=0
-operation_parameters_maximum_occurrences["listCostModels:::limit"]=0
+operation_parameters_maximum_occurrences["getAWSCostReports:::delta"]=0
+operation_parameters_maximum_occurrences["getAWSCostReports:::filter"]=0
+operation_parameters_maximum_occurrences["getAWSCostReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getAWSCostReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getAWSCostReports:::offset"]=0
+operation_parameters_maximum_occurrences["getAWSCostReports:::limit"]=0
+operation_parameters_maximum_occurrences["getAWSInstanceReports:::filter"]=0
+operation_parameters_maximum_occurrences["getAWSInstanceReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getAWSInstanceReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getAWSInstanceReports:::units"]=0
+operation_parameters_maximum_occurrences["getAWSInstanceReports:::offset"]=0
+operation_parameters_maximum_occurrences["getAWSInstanceReports:::limit"]=0
+operation_parameters_maximum_occurrences["getAWSStorageReports:::filter"]=0
+operation_parameters_maximum_occurrences["getAWSStorageReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getAWSStorageReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getAWSStorageReports:::units"]=0
+operation_parameters_maximum_occurrences["getAWSStorageReports:::offset"]=0
+operation_parameters_maximum_occurrences["getAWSStorageReports:::limit"]=0
+operation_parameters_maximum_occurrences["createCostModels:::CostModel"]=0
+operation_parameters_maximum_occurrences["deleteCostModel:::cost_model_uuid"]=0
+operation_parameters_maximum_occurrences["getCostModel:::cost_model_uuid"]=0
 operation_parameters_maximum_occurrences["listCostModels:::offset"]=0
+operation_parameters_maximum_occurrences["listCostModels:::limit"]=0
+operation_parameters_maximum_occurrences["listCostModels:::provider_uuid"]=0
 operation_parameters_maximum_occurrences["listCostModels:::source_type"]=0
 operation_parameters_maximum_occurrences["listCostModels:::name"]=0
-operation_parameters_maximum_occurrences["listOCPAWSCosts:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPAWSCosts:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPAWSCosts:::delta"]=0
-operation_parameters_maximum_occurrences["listOCPAWSCosts:::units"]=0
-operation_parameters_maximum_occurrences["listOCPAWSInstanceTypes:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPAWSInstanceTypes:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPAWSInstanceTypes:::delta"]=0
-operation_parameters_maximum_occurrences["listOCPAWSInstanceTypes:::units"]=0
-operation_parameters_maximum_occurrences["listOCPAWSStorages:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPAWSStorages:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPAWSStorages:::delta"]=0
-operation_parameters_maximum_occurrences["listOCPAWSStorages:::units"]=0
-operation_parameters_maximum_occurrences["listOCPAWSTags:::filter"]=0
-operation_parameters_maximum_occurrences["listOCPAWSTags:::key_only"]=0
-operation_parameters_maximum_occurrences["listOCPCosts:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPCosts:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPCosts:::units"]=0
-operation_parameters_maximum_occurrences["listOCPCosts:::delta"]=0
-operation_parameters_maximum_occurrences["listOCPCpus:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPCpus:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPCpus:::units"]=0
-operation_parameters_maximum_occurrences["listOCPCpus:::delta"]=0
-operation_parameters_maximum_occurrences["listOCPMemorys:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPMemorys:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPMemorys:::units"]=0
-operation_parameters_maximum_occurrences["listOCPMemorys:::delta"]=0
-operation_parameters_maximum_occurrences["listOCPTags:::filter"]=0
-operation_parameters_maximum_occurrences["listOCPTags:::key_only"]=0
-operation_parameters_maximum_occurrences["listOCPVolumes:::limit"]=0
-operation_parameters_maximum_occurrences["listOCPVolumes:::offset"]=0
-operation_parameters_maximum_occurrences["listOCPVolumes:::units"]=0
-operation_parameters_maximum_occurrences["listOCPVolumes:::delta"]=0
-operation_parameters_maximum_occurrences["listProviders:::limit"]=0
-operation_parameters_maximum_occurrences["listProviders:::offset"]=0
+operation_parameters_maximum_occurrences["updateCostModel:::cost_model_uuid"]=0
+operation_parameters_maximum_occurrences["updateCostModel:::CostModel"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSCostReports:::delta"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSCostReports:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSCostReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSCostReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSCostReports:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSCostReports:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryInstanceReport:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryInstanceReport:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryInstanceReport:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryInstanceReport:::units"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryInstanceReport:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryInstanceReport:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryStorageReport:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryStorageReport:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryStorageReport:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryStorageReport:::units"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryStorageReport:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSInventoryStorageReport:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftComputeReports:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftComputeReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftComputeReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftComputeReports:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftComputeReports:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftCostReports:::delta"]=0
+operation_parameters_maximum_occurrences["getOpenShiftCostReports:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftCostReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftCostReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftCostReports:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftCostReports:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftMemoryReports:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftMemoryReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftMemoryReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftMemoryReports:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftMemoryReports:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftVolumeReports:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftVolumeReports:::group_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftVolumeReports:::order_by"]=0
+operation_parameters_maximum_occurrences["getOpenShiftVolumeReports:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftVolumeReports:::limit"]=0
+operation_parameters_maximum_occurrences["createProvider:::ProviderIn"]=0
+operation_parameters_maximum_occurrences["deleteProvider:::uuid"]=0
+operation_parameters_maximum_occurrences["getProvider:::uuid"]=0
 operation_parameters_maximum_occurrences["listProviders:::type"]=0
 operation_parameters_maximum_occurrences["listProviders:::name"]=0
-operation_parameters_maximum_occurrences["listUserPreferences:::limit"]=0
+operation_parameters_maximum_occurrences["listProviders:::offset"]=0
+operation_parameters_maximum_occurrences["listProviders:::limit"]=0
+operation_parameters_maximum_occurrences["getAWSTagData:::filter"]=0
+operation_parameters_maximum_occurrences["getAWSTagData:::key_only"]=0
+operation_parameters_maximum_occurrences["getAWSTagData:::offset"]=0
+operation_parameters_maximum_occurrences["getAWSTagData:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSTagData:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSTagData:::key_only"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSTagData:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftAWSTagData:::limit"]=0
+operation_parameters_maximum_occurrences["getOpenShiftTagData:::filter"]=0
+operation_parameters_maximum_occurrences["getOpenShiftTagData:::key_only"]=0
+operation_parameters_maximum_occurrences["getOpenShiftTagData:::offset"]=0
+operation_parameters_maximum_occurrences["getOpenShiftTagData:::limit"]=0
+operation_parameters_maximum_occurrences["createUserPreference:::UserPreference"]=0
+operation_parameters_maximum_occurrences["deleteUserPreference:::pref_uuid"]=0
+operation_parameters_maximum_occurrences["getUserPreference:::pref_uuid"]=0
 operation_parameters_maximum_occurrences["listUserPreferences:::offset"]=0
-operation_parameters_maximum_occurrences["partialUpdateCostModel:::uuid"]=0
-operation_parameters_maximum_occurrences["partialUpdateCostModel:::source_type"]=0
-operation_parameters_maximum_occurrences["partialUpdateCostModel:::name"]=0
-operation_parameters_maximum_occurrences["partialUpdateCostModel:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_maximum_occurrences["partialUpdateUserPreference:::uuid"]=0
-operation_parameters_maximum_occurrences["partialUpdateUserPreference:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_maximum_occurrences["retrieveCostModel:::uuid"]=0
-operation_parameters_maximum_occurrences["retrieveCostModel:::source_type"]=0
-operation_parameters_maximum_occurrences["retrieveCostModel:::name"]=0
-operation_parameters_maximum_occurrences["retrieveProvider:::uuid"]=0
-operation_parameters_maximum_occurrences["retrieveProvider:::type"]=0
-operation_parameters_maximum_occurrences["retrieveProvider:::name"]=0
-operation_parameters_maximum_occurrences["retrieveUserPreference:::uuid"]=0
-operation_parameters_maximum_occurrences["updateCostModel:::uuid"]=0
-operation_parameters_maximum_occurrences["updateCostModel:::source_type"]=0
-operation_parameters_maximum_occurrences["updateCostModel:::name"]=0
-operation_parameters_maximum_occurrences["updateCostModel:::UNKNOWN_BASE_TYPE"]=0
-operation_parameters_maximum_occurrences["updateUserPreference:::uuid"]=0
-operation_parameters_maximum_occurrences["updateUserPreference:::UNKNOWN_BASE_TYPE"]=0
+operation_parameters_maximum_occurrences["listUserPreferences:::limit"]=0
+operation_parameters_maximum_occurrences["updateUserPreference:::pref_uuid"]=0
+operation_parameters_maximum_occurrences["updateUserPreference:::UserPreference"]=0
 
 ##
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
-operation_parameters_collection_type["createCostModel:::UNKNOWN_BASE_TYPE"]=""
-operation_parameters_collection_type["createProvider:::UNKNOWN_BASE_TYPE"]=""
-operation_parameters_collection_type["createUserPreference:::UNKNOWN_BASE_TYPE"]=""
-operation_parameters_collection_type["destroyCostModel:::uuid"]=""
-operation_parameters_collection_type["destroyCostModel:::source_type"]=""
-operation_parameters_collection_type["destroyCostModel:::name"]=""
-operation_parameters_collection_type["destroyProvider:::uuid"]=""
-operation_parameters_collection_type["destroyProvider:::type"]=""
-operation_parameters_collection_type["destroyProvider:::name"]=""
-operation_parameters_collection_type["destroyUserPreference:::uuid"]=""
-operation_parameters_collection_type["listAWSCosts:::limit"]=""
-operation_parameters_collection_type["listAWSCosts:::offset"]=""
-operation_parameters_collection_type["listAWSCosts:::delta"]=""
-operation_parameters_collection_type["listAWSCosts:::units"]=""
-operation_parameters_collection_type["listAWSInstanceTypes:::limit"]=""
-operation_parameters_collection_type["listAWSInstanceTypes:::offset"]=""
-operation_parameters_collection_type["listAWSInstanceTypes:::delta"]=""
-operation_parameters_collection_type["listAWSInstanceTypes:::units"]=""
-operation_parameters_collection_type["listAWSStorages:::limit"]=""
-operation_parameters_collection_type["listAWSStorages:::offset"]=""
-operation_parameters_collection_type["listAWSStorages:::delta"]=""
-operation_parameters_collection_type["listAWSStorages:::units"]=""
-operation_parameters_collection_type["listAWSTags:::filter"]=""
-operation_parameters_collection_type["listAWSTags:::key_only"]=""
-operation_parameters_collection_type["listCostModelMetricsMaps:::limit"]=""
-operation_parameters_collection_type["listCostModelMetricsMaps:::offset"]=""
-operation_parameters_collection_type["listCostModels:::limit"]=""
+operation_parameters_collection_type["getAWSCostReports:::delta"]=""
+operation_parameters_collection_type["getAWSCostReports:::filter"]=""
+operation_parameters_collection_type["getAWSCostReports:::group_by"]=""
+operation_parameters_collection_type["getAWSCostReports:::order_by"]=""
+operation_parameters_collection_type["getAWSCostReports:::offset"]=""
+operation_parameters_collection_type["getAWSCostReports:::limit"]=""
+operation_parameters_collection_type["getAWSInstanceReports:::filter"]=""
+operation_parameters_collection_type["getAWSInstanceReports:::group_by"]=""
+operation_parameters_collection_type["getAWSInstanceReports:::order_by"]=""
+operation_parameters_collection_type["getAWSInstanceReports:::units"]=""
+operation_parameters_collection_type["getAWSInstanceReports:::offset"]=""
+operation_parameters_collection_type["getAWSInstanceReports:::limit"]=""
+operation_parameters_collection_type["getAWSStorageReports:::filter"]=""
+operation_parameters_collection_type["getAWSStorageReports:::group_by"]=""
+operation_parameters_collection_type["getAWSStorageReports:::order_by"]=""
+operation_parameters_collection_type["getAWSStorageReports:::units"]=""
+operation_parameters_collection_type["getAWSStorageReports:::offset"]=""
+operation_parameters_collection_type["getAWSStorageReports:::limit"]=""
+operation_parameters_collection_type["createCostModels:::CostModel"]=""
+operation_parameters_collection_type["deleteCostModel:::cost_model_uuid"]=""
+operation_parameters_collection_type["getCostModel:::cost_model_uuid"]=""
 operation_parameters_collection_type["listCostModels:::offset"]=""
+operation_parameters_collection_type["listCostModels:::limit"]=""
+operation_parameters_collection_type["listCostModels:::provider_uuid"]=""
 operation_parameters_collection_type["listCostModels:::source_type"]=""
 operation_parameters_collection_type["listCostModels:::name"]=""
-operation_parameters_collection_type["listOCPAWSCosts:::limit"]=""
-operation_parameters_collection_type["listOCPAWSCosts:::offset"]=""
-operation_parameters_collection_type["listOCPAWSCosts:::delta"]=""
-operation_parameters_collection_type["listOCPAWSCosts:::units"]=""
-operation_parameters_collection_type["listOCPAWSInstanceTypes:::limit"]=""
-operation_parameters_collection_type["listOCPAWSInstanceTypes:::offset"]=""
-operation_parameters_collection_type["listOCPAWSInstanceTypes:::delta"]=""
-operation_parameters_collection_type["listOCPAWSInstanceTypes:::units"]=""
-operation_parameters_collection_type["listOCPAWSStorages:::limit"]=""
-operation_parameters_collection_type["listOCPAWSStorages:::offset"]=""
-operation_parameters_collection_type["listOCPAWSStorages:::delta"]=""
-operation_parameters_collection_type["listOCPAWSStorages:::units"]=""
-operation_parameters_collection_type["listOCPAWSTags:::filter"]=""
-operation_parameters_collection_type["listOCPAWSTags:::key_only"]=""
-operation_parameters_collection_type["listOCPCosts:::limit"]=""
-operation_parameters_collection_type["listOCPCosts:::offset"]=""
-operation_parameters_collection_type["listOCPCosts:::units"]=""
-operation_parameters_collection_type["listOCPCosts:::delta"]=""
-operation_parameters_collection_type["listOCPCpus:::limit"]=""
-operation_parameters_collection_type["listOCPCpus:::offset"]=""
-operation_parameters_collection_type["listOCPCpus:::units"]=""
-operation_parameters_collection_type["listOCPCpus:::delta"]=""
-operation_parameters_collection_type["listOCPMemorys:::limit"]=""
-operation_parameters_collection_type["listOCPMemorys:::offset"]=""
-operation_parameters_collection_type["listOCPMemorys:::units"]=""
-operation_parameters_collection_type["listOCPMemorys:::delta"]=""
-operation_parameters_collection_type["listOCPTags:::filter"]=""
-operation_parameters_collection_type["listOCPTags:::key_only"]=""
-operation_parameters_collection_type["listOCPVolumes:::limit"]=""
-operation_parameters_collection_type["listOCPVolumes:::offset"]=""
-operation_parameters_collection_type["listOCPVolumes:::units"]=""
-operation_parameters_collection_type["listOCPVolumes:::delta"]=""
-operation_parameters_collection_type["listProviders:::limit"]=""
-operation_parameters_collection_type["listProviders:::offset"]=""
+operation_parameters_collection_type["updateCostModel:::cost_model_uuid"]=""
+operation_parameters_collection_type["updateCostModel:::CostModel"]=""
+operation_parameters_collection_type["getOpenShiftAWSCostReports:::delta"]=""
+operation_parameters_collection_type["getOpenShiftAWSCostReports:::filter"]=""
+operation_parameters_collection_type["getOpenShiftAWSCostReports:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftAWSCostReports:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftAWSCostReports:::offset"]=""
+operation_parameters_collection_type["getOpenShiftAWSCostReports:::limit"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryInstanceReport:::filter"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryInstanceReport:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryInstanceReport:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryInstanceReport:::units"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryInstanceReport:::offset"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryInstanceReport:::limit"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryStorageReport:::filter"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryStorageReport:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryStorageReport:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryStorageReport:::units"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryStorageReport:::offset"]=""
+operation_parameters_collection_type["getOpenShiftAWSInventoryStorageReport:::limit"]=""
+operation_parameters_collection_type["getOpenShiftComputeReports:::filter"]=""
+operation_parameters_collection_type["getOpenShiftComputeReports:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftComputeReports:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftComputeReports:::offset"]=""
+operation_parameters_collection_type["getOpenShiftComputeReports:::limit"]=""
+operation_parameters_collection_type["getOpenShiftCostReports:::delta"]=""
+operation_parameters_collection_type["getOpenShiftCostReports:::filter"]=""
+operation_parameters_collection_type["getOpenShiftCostReports:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftCostReports:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftCostReports:::offset"]=""
+operation_parameters_collection_type["getOpenShiftCostReports:::limit"]=""
+operation_parameters_collection_type["getOpenShiftMemoryReports:::filter"]=""
+operation_parameters_collection_type["getOpenShiftMemoryReports:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftMemoryReports:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftMemoryReports:::offset"]=""
+operation_parameters_collection_type["getOpenShiftMemoryReports:::limit"]=""
+operation_parameters_collection_type["getOpenShiftVolumeReports:::filter"]=""
+operation_parameters_collection_type["getOpenShiftVolumeReports:::group_by"]=""
+operation_parameters_collection_type["getOpenShiftVolumeReports:::order_by"]=""
+operation_parameters_collection_type["getOpenShiftVolumeReports:::offset"]=""
+operation_parameters_collection_type["getOpenShiftVolumeReports:::limit"]=""
+operation_parameters_collection_type["createProvider:::ProviderIn"]=""
+operation_parameters_collection_type["deleteProvider:::uuid"]=""
+operation_parameters_collection_type["getProvider:::uuid"]=""
 operation_parameters_collection_type["listProviders:::type"]=""
 operation_parameters_collection_type["listProviders:::name"]=""
-operation_parameters_collection_type["listUserPreferences:::limit"]=""
+operation_parameters_collection_type["listProviders:::offset"]=""
+operation_parameters_collection_type["listProviders:::limit"]=""
+operation_parameters_collection_type["getAWSTagData:::filter"]=""
+operation_parameters_collection_type["getAWSTagData:::key_only"]=""
+operation_parameters_collection_type["getAWSTagData:::offset"]=""
+operation_parameters_collection_type["getAWSTagData:::limit"]=""
+operation_parameters_collection_type["getOpenShiftAWSTagData:::filter"]=""
+operation_parameters_collection_type["getOpenShiftAWSTagData:::key_only"]=""
+operation_parameters_collection_type["getOpenShiftAWSTagData:::offset"]=""
+operation_parameters_collection_type["getOpenShiftAWSTagData:::limit"]=""
+operation_parameters_collection_type["getOpenShiftTagData:::filter"]=""
+operation_parameters_collection_type["getOpenShiftTagData:::key_only"]=""
+operation_parameters_collection_type["getOpenShiftTagData:::offset"]=""
+operation_parameters_collection_type["getOpenShiftTagData:::limit"]=""
+operation_parameters_collection_type["createUserPreference:::UserPreference"]=""
+operation_parameters_collection_type["deleteUserPreference:::pref_uuid"]=""
+operation_parameters_collection_type["getUserPreference:::pref_uuid"]=""
 operation_parameters_collection_type["listUserPreferences:::offset"]=""
-operation_parameters_collection_type["partialUpdateCostModel:::uuid"]=""
-operation_parameters_collection_type["partialUpdateCostModel:::source_type"]=""
-operation_parameters_collection_type["partialUpdateCostModel:::name"]=""
-operation_parameters_collection_type["partialUpdateCostModel:::UNKNOWN_BASE_TYPE"]=""
-operation_parameters_collection_type["partialUpdateUserPreference:::uuid"]=""
-operation_parameters_collection_type["partialUpdateUserPreference:::UNKNOWN_BASE_TYPE"]=""
-operation_parameters_collection_type["retrieveCostModel:::uuid"]=""
-operation_parameters_collection_type["retrieveCostModel:::source_type"]=""
-operation_parameters_collection_type["retrieveCostModel:::name"]=""
-operation_parameters_collection_type["retrieveProvider:::uuid"]=""
-operation_parameters_collection_type["retrieveProvider:::type"]=""
-operation_parameters_collection_type["retrieveProvider:::name"]=""
-operation_parameters_collection_type["retrieveUserPreference:::uuid"]=""
-operation_parameters_collection_type["updateCostModel:::uuid"]=""
-operation_parameters_collection_type["updateCostModel:::source_type"]=""
-operation_parameters_collection_type["updateCostModel:::name"]=""
-operation_parameters_collection_type["updateCostModel:::UNKNOWN_BASE_TYPE"]=""
-operation_parameters_collection_type["updateUserPreference:::uuid"]=""
-operation_parameters_collection_type["updateUserPreference:::UNKNOWN_BASE_TYPE"]=""
+operation_parameters_collection_type["listUserPreferences:::limit"]=""
+operation_parameters_collection_type["updateUserPreference:::pref_uuid"]=""
+operation_parameters_collection_type["updateUserPreference:::UserPreference"]=""
 
 
 ##
@@ -699,7 +717,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}Cost Management command line client (API version 1)${OFF}
+${BOLD}${WHITE}Cost Management command line client (API version 1.0.0)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -726,41 +744,73 @@ ${BOLD}${WHITE}Usage${OFF}
                                       JSON as '{ ..., "${YELLOW}KEY${OFF}": ${BLUE}VALUE${OFF}, ... }'
 
 EOF
+    echo -e "${BOLD}${WHITE}Authentication methods${OFF}"
+    echo -e ""
+    echo -e "  - ${BLUE}Basic AUTH${OFF} - add '-u <username>:<password>' before ${YELLOW}<operation>${OFF}"
+    
+    echo ""
     echo -e "${BOLD}${WHITE}Operations (grouped by tags)${OFF}"
     echo ""
-    echo -e "${BOLD}${WHITE}[default]${OFF}"
+    echo -e "${BOLD}${WHITE}[aWSReport]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}createCostModel${OFF};
-  ${CYAN}createProvider${OFF};
-  ${CYAN}createUserPreference${OFF};
-  ${CYAN}destroyCostModel${OFF};
-  ${CYAN}destroyProvider${OFF};
-  ${CYAN}destroyUserPreference${OFF};
-  ${CYAN}listAWSCosts${OFF};
-  ${CYAN}listAWSInstanceTypes${OFF};
-  ${CYAN}listAWSStorages${OFF};
-  ${CYAN}listAWSTags${OFF};
-  ${CYAN}listCostModelMetricsMaps${OFF};
-  ${CYAN}listCostModels${OFF};
-  ${CYAN}listOCPAWSCosts${OFF};
-  ${CYAN}listOCPAWSInstanceTypes${OFF};
-  ${CYAN}listOCPAWSStorages${OFF};
-  ${CYAN}listOCPAWSTags${OFF};
-  ${CYAN}listOCPCosts${OFF};
-  ${CYAN}listOCPCpus${OFF};
-  ${CYAN}listOCPMemorys${OFF};
-  ${CYAN}listOCPTags${OFF};
-  ${CYAN}listOCPVolumes${OFF};
-  ${CYAN}listProviders${OFF};
-  ${CYAN}listStatus${OFF};
-  ${CYAN}listUserPreferences${OFF};
-  ${CYAN}partialUpdateCostModel${OFF};
-  ${CYAN}partialUpdateUserPreference${OFF};
-  ${CYAN}retrieveCostModel${OFF};
-  ${CYAN}retrieveProvider${OFF};
-  ${CYAN}retrieveUserPreference${OFF};
-  ${CYAN}updateCostModel${OFF};
-  ${CYAN}updateUserPreference${OFF};
+  ${CYAN}getAWSCostReports${OFF};Query to obtain cost reports (AUTH)
+  ${CYAN}getAWSInstanceReports${OFF};Query to obtain AWS instance type data (AUTH)
+  ${CYAN}getAWSStorageReports${OFF};Query to obtain AWS storage data (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[costModel]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}createCostModels${OFF};Create a new cost model. (AUTH)
+  ${CYAN}deleteCostModel${OFF};Delete a Cost Model (AUTH)
+  ${CYAN}getCostModel${OFF};Get a Cost Model. (AUTH)
+  ${CYAN}listCostModels${OFF};List the cost models
+  ${CYAN}updateCostModel${OFF};Update a Cost Model (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[openShiftReport]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}getOpenShiftAWSCostReports${OFF};Query to obtain OpenShift on AWS cost reports (AUTH)
+  ${CYAN}getOpenShiftAWSInventoryInstanceReport${OFF};Query to obtain OpenShift on AWS instance data (AUTH)
+  ${CYAN}getOpenShiftAWSInventoryStorageReport${OFF};Query to obtain OpenShift on AWS storage data (AUTH)
+  ${CYAN}getOpenShiftComputeReports${OFF};Query to obtain OpenShift compute usage information (AUTH)
+  ${CYAN}getOpenShiftCostReports${OFF};Query to obtain cost reports (AUTH)
+  ${CYAN}getOpenShiftMemoryReports${OFF};Query to obtain OpenShift memory usage information (AUTH)
+  ${CYAN}getOpenShiftVolumeReports${OFF};Query to obtain OpenShift volume usage information (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[provider]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}createProvider${OFF};Create a provider (AUTH)
+  ${CYAN}deleteProvider${OFF};Delete a provider (AUTH)
+  ${CYAN}getProvider${OFF};Get a provider (AUTH)
+  ${CYAN}listProviders${OFF};List the providers (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[status]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}getStatus${OFF};Obtain server status
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[tags]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}getAWSTagData${OFF};Query to obtain AWS tags (AUTH)
+  ${CYAN}getOpenShiftAWSTagData${OFF};Query to obtain OpenShift-on-AWS tags (AUTH)
+  ${CYAN}getOpenShiftTagData${OFF};Query to obtain OpenShift tags (AUTH)
+EOF
+echo "  $ops" | column -t -s ';'
+    echo ""
+    echo -e "${BOLD}${WHITE}[userPreference]${OFF}"
+read -r -d '' ops <<EOF
+  ${CYAN}createUserPreference${OFF};Create a user preference (AUTH)
+  ${CYAN}deleteUserPreference${OFF};Delete a user preference (AUTH)
+  ${CYAN}getUserPreference${OFF};Get a user preference (AUTH)
+  ${CYAN}listUserPreferences${OFF};List the user's preferences (AUTH)
+  ${CYAN}updateUserPreference${OFF};Update a user preference (AUTH)
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -790,14 +840,14 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://localhost')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}Cost Management command line client (API version 1)${OFF}"
+    echo -e "${BOLD}${WHITE}Cost Management command line client (API version 1.0.0)${OFF}"
     echo ""
     echo -e "License: AGPL-3.0"
     echo -e "Contact: "
     echo ""
 read -r -d '' appdescription <<EOF
 
-The API for Cost Management. You can find out more about Cost Management at https://github.com/project-koku/.
+The API for Cost Management.  You can find out more about     Cost Management at [https://github.com/project-koku/](https://github.com/project-koku/).
 EOF
 echo "$appdescription" | paste -sd' ' | fold -sw 80
 }
@@ -810,223 +860,167 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}Cost Management command line client (API version 1)${OFF}"
+    echo -e "${BOLD}Cost Management command line client (API version 1.0.0)${OFF}"
     echo ""
 }
 
 ##############################################################################
 #
-# Print help for createCostModel operation
+# Print help for getAWSCostReports operation
 #
 ##############################################################################
-print_createCostModel_help() {
+print_getAWSCostReports_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}createCostModel - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getAWSCostReports - Query to obtain cost reports${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for createProvider operation
-#
-##############################################################################
-print_createProvider_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}createProvider - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for createProvider.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for createUserPreference operation
-#
-##############################################################################
-print_createUserPreference_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}createUserPreference - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for createUserPreference.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for destroyCostModel operation
-#
-##############################################################################
-print_destroyCostModel_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}destroyCostModel - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - A UUID string identifying this cost model. ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}source_type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - source_type${YELLOW} Specify as: source_type=value${OFF}" \
+    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Toggle to include delta values in report.${YELLOW} Specify as: delta=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getAWSInstanceReports operation
+#
+##############################################################################
+print_getAWSInstanceReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getAWSInstanceReports - Query to obtain AWS instance type data${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The units used to report data.${YELLOW} Specify as: units=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getAWSStorageReports operation
+#
+##############################################################################
+print_getAWSStorageReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getAWSStorageReports - Query to obtain AWS storage data${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The units used to report data.${YELLOW} Specify as: units=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for createCostModels operation
+#
+##############################################################################
+print_createCostModels_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}createCostModels - Create a new cost model.${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - Rate to add to a Rate" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;An object describing the cost model${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for deleteCostModel operation
+#
+##############################################################################
+print_deleteCostModel_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}deleteCostModel - Delete a Cost Model${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}cost_model_uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - UUID of Cost Model to get ${YELLOW}Specify as: cost_model_uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=204
-    echo -e "${result_color_table[${code:0:1}]}  204;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  204;Cost Model deleted${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
-# Print help for destroyProvider operation
+# Print help for getCostModel operation
 #
 ##############################################################################
-print_destroyProvider_help() {
+print_getCostModel_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}destroyProvider - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}getCostModel - Get a Cost Model.${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - type${YELLOW} Specify as: type=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=204
-    echo -e "${result_color_table[${code:0:1}]}  204;Object Deleted.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for destroyUserPreference operation
-#
-##############################################################################
-print_destroyUserPreference_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}destroyUserPreference - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=204
-    echo -e "${result_color_table[${code:0:1}]}  204;Object Deleted.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listAWSCosts operation
-#
-##############################################################################
-print_listAWSCosts_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listAWSCosts - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}cost_model_uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - UUID of Cost Model to get ${YELLOW}Specify as: cost_model_uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListAWSCosts.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listAWSInstanceTypes operation
-#
-##############################################################################
-print_listAWSInstanceTypes_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listAWSInstanceTypes - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListAWSInstanceTypes.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listAWSStorages operation
-#
-##############################################################################
-print_listAWSStorages_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listAWSStorages - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListAWSStorages.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listAWSTags operation
-#
-##############################################################################
-print_listAWSTags_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listAWSTags - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[Filter]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded filter to apply to the query${YELLOW} Specify as: filter=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}key_only${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded key_only to apply to the query${YELLOW} Specify as: key_only=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListAWSTags.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listCostModelMetricsMaps operation
-#
-##############################################################################
-print_listCostModelMetricsMaps_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listCostModelMetricsMaps - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListCostModelMetricsMaps.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;A Cost Model object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -1035,372 +1029,27 @@ print_listCostModelMetricsMaps_help() {
 ##############################################################################
 print_listCostModels_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}listCostModels - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}listCostModels - List the cost models${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 10)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}source_type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - source_type${YELLOW} Specify as: source_type=value${OFF}" \
+    echo -e "  * ${GREEN}provider_uuid${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter response on provider uuid.${YELLOW} Specify as: provider_uuid=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
+    echo -e "  * ${GREEN}source_type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter response on provider source type.${YELLOW} Specify as: source_type=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPAWSCosts operation
-#
-##############################################################################
-print_listOCPAWSCosts_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPAWSCosts - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
+    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter response on cost model name.${YELLOW} Specify as: name=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPAWSCosts.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPAWSInstanceTypes operation
-#
-##############################################################################
-print_listOCPAWSInstanceTypes_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPAWSInstanceTypes - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPAWSInstanceTypes.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPAWSStorages operation
-#
-##############################################################################
-print_listOCPAWSStorages_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPAWSStorages - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPAWSStorages.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPAWSTags operation
-#
-##############################################################################
-print_listOCPAWSTags_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPAWSTags - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[Filter2]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded filter to apply to the query${YELLOW} Specify as: filter=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}key_only${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded key_only to apply to the query${YELLOW} Specify as: key_only=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPAWSTags.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPCosts operation
-#
-##############################################################################
-print_listOCPCosts_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPCosts - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPCosts.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPCpus operation
-#
-##############################################################################
-print_listOCPCpus_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPCpus - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPCpus.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPMemorys operation
-#
-##############################################################################
-print_listOCPMemorys_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPMemorys - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPMemorys.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPTags operation
-#
-##############################################################################
-print_listOCPTags_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPTags - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[Filter1]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded filter to apply to the query${YELLOW} Specify as: filter=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}key_only${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded key_only to apply to the query${YELLOW} Specify as: key_only=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPTags.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listOCPVolumes operation
-#
-##############################################################################
-print_listOCPVolumes_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listOCPVolumes - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded limit to apply to the query${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded offset to apply to the query${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded units to apply to the query${YELLOW} Specify as: units=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The  URL encoded delta to apply to the query${YELLOW} Specify as: delta=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListOCPVolumes.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listProviders operation
-#
-##############################################################################
-print_listProviders_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listProviders - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - type${YELLOW} Specify as: type=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListProviders.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listStatus operation
-#
-##############################################################################
-print_listStatus_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listStatus - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for listUserPreferences operation
-#
-##############################################################################
-print_listUserPreferences_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}listUserPreferences - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - Number of results to return per page.${YELLOW} Specify as: limit=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: null)${OFF} - The initial index from which to return the results.${YELLOW} Specify as: offset=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for ListUserPreferences.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for partialUpdateCostModel operation
-#
-##############################################################################
-print_partialUpdateCostModel_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}partialUpdateCostModel - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - A UUID string identifying this cost model. ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}source_type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - source_type${YELLOW} Specify as: source_type=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for partialUpdateUserPreference operation
-#
-##############################################################################
-print_partialUpdateUserPreference_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}partialUpdateUserPreference - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for partial_updateUserPreference.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for retrieveCostModel operation
-#
-##############################################################################
-print_retrieveCostModel_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}retrieveCostModel - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - A UUID string identifying this cost model. ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}source_type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - source_type${YELLOW} Specify as: source_type=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for retrieveProvider operation
-#
-##############################################################################
-print_retrieveProvider_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}retrieveProvider - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - type${YELLOW} Specify as: type=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for retrieveProvider.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
-}
-##############################################################################
-#
-# Print help for retrieveUserPreference operation
-#
-##############################################################################
-print_retrieveUserPreference_help() {
-    echo ""
-    echo -e "${BOLD}${WHITE}retrieveUserPreference - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e ""
-    echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo ""
-    echo -e "${BOLD}${WHITE}Responses${OFF}"
-    code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for retrieveUserPreference.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated list of cost model objects${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -1409,20 +1058,512 @@ print_retrieveUserPreference_help() {
 ##############################################################################
 print_updateCostModel_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}updateCostModel - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}updateCostModel - Update a Cost Model${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - A UUID string identifying this cost model. ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}source_type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - source_type${YELLOW} Specify as: source_type=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - name${YELLOW} Specify as: name=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}cost_model_uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - UUID of Cost Model to get ${YELLOW}Specify as: cost_model_uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - Update to a Cost Model" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;A Cost Model object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftAWSCostReports operation
+#
+##############################################################################
+print_getOpenShiftAWSCostReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftAWSCostReports - Query to obtain OpenShift on AWS cost reports${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Toggle to include delta values in report.${YELLOW} Specify as: delta=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftAWSInventoryInstanceReport operation
+#
+##############################################################################
+print_getOpenShiftAWSInventoryInstanceReport_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftAWSInventoryInstanceReport - Query to obtain OpenShift on AWS instance data${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The units used to report data.${YELLOW} Specify as: units=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftAWSInventoryStorageReport operation
+#
+##############################################################################
+print_getOpenShiftAWSInventoryStorageReport_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftAWSInventoryStorageReport - Query to obtain OpenShift on AWS storage data${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}units${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The units used to report data.${YELLOW} Specify as: units=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftComputeReports operation
+#
+##############################################################################
+print_getOpenShiftComputeReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftComputeReports - Query to obtain OpenShift compute usage information${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftCostReports operation
+#
+##############################################################################
+print_getOpenShiftCostReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftCostReports - Query to obtain cost reports${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Toggle to include delta values in report.${YELLOW} Specify as: delta=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftMemoryReports operation
+#
+##############################################################################
+print_getOpenShiftMemoryReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftMemoryReports - Query to obtain OpenShift memory usage information${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftVolumeReports operation
+#
+##############################################################################
+print_getOpenShiftVolumeReports_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftVolumeReports - Query to obtain OpenShift volume usage information${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for createProvider operation
+#
+##############################################################################
+print_createProvider_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}createProvider - Create a provider${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - Provider to add to a Customer" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;An object describing the provider${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for deleteProvider operation
+#
+##############################################################################
+print_deleteProvider_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}deleteProvider - Delete a provider${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of provider to delete ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=204
+    echo -e "${result_color_table[${code:0:1}]}  204;Provider deleted${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=403
+    echo -e "${result_color_table[${code:0:1}]}  403;Insufficent permissions to delete provider${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getProvider operation
+#
+##############################################################################
+print_getProvider_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getProvider - Get a provider${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of provider to get ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A Provider object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for listProviders operation
+#
+##############################################################################
+print_listProviders_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}listProviders - List the providers${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}type${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The type of provider to filter for.${YELLOW} Specify as: type=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}name${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The name of the provider to filter for.${YELLOW} Specify as: name=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 10)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated list of provider objects${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getStatus operation
+#
+##############################################################################
+print_getStatus_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getStatus - Obtain server status${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;An object describing the server status${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getAWSTagData operation
+#
+##############################################################################
+print_getAWSTagData_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getAWSTagData - Query to obtain AWS tags${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the query as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}key_only${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Flag to indicate whether or not only the tag key values will be returned.${YELLOW} Specify as: key_only=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftAWSTagData operation
+#
+##############################################################################
+print_getOpenShiftAWSTagData_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftAWSTagData - Query to obtain OpenShift-on-AWS tags${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the query as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}key_only${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Flag to indicate whether or not only the tag key values will be returned.${YELLOW} Specify as: key_only=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getOpenShiftTagData operation
+#
+##############################################################################
+print_getOpenShiftTagData_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getOpenShiftTagData - Query to obtain OpenShift tags${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the query as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}key_only${OFF} ${BLUE}[boolean]${OFF} ${CYAN}(default: null)${OFF} - Flag to indicate whether or not only the tag key values will be returned.${YELLOW} Specify as: key_only=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 100)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated report object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for createUserPreference operation
+#
+##############################################################################
+print_createUserPreference_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}createUserPreference - Create a user preference${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - Preference to add to a Preference" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=201
+    echo -e "${result_color_table[${code:0:1}]}  201;An object describing the user${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for deleteUserPreference operation
+#
+##############################################################################
+print_deleteUserPreference_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}deleteUserPreference - Delete a user preference${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}pref_uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of preference to get ${YELLOW}Specify as: pref_uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=204
+    echo -e "${result_color_table[${code:0:1}]}  204;User deleted${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for getUserPreference operation
+#
+##############################################################################
+print_getUserPreference_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}getUserPreference - Get a user preference${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}pref_uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of preference to get ${YELLOW}Specify as: pref_uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A UserPreference object${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for listUserPreferences operation
+#
+##############################################################################
+print_listUserPreferences_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}listUserPreferences - List the user's preferences${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}limit${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 10)${OFF} - Parameter for selecting the amount of data in a returned.${YELLOW} Specify as: limit=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;A paginated list of preference objects${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -1431,34 +1572,148 @@ print_updateCostModel_help() {
 ##############################################################################
 print_updateUserPreference_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}updateUserPreference - ${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}updateUserPreference - Update a user preference${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} -  ${YELLOW}Specify as: uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}pref_uuid${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ID of preference to get ${YELLOW}Specify as: pref_uuid=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - Update to a Preference" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Successful Response for updateUserPreference.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Preference updated${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=401
+    echo -e "${result_color_table[${code:0:1}]}  401;Unauthorized${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=404
+    echo -e "${result_color_table[${code:0:1}]}  404;Not Found${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=500
+    echo -e "${result_color_table[${code:0:1}]}  500;Unexpected Error${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 
 
 ##############################################################################
 #
-# Call createCostModel operation
+# Call getAWSCostReports operation
 #
 ##############################################################################
-call_createCostModel() {
+call_getAWSCostReports() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(delta filter group_by order_by offset limit  )
     local path
 
-    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/aws/costs/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAWSInstanceReports operation
+#
+##############################################################################
+call_getAWSInstanceReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by units offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/aws/instance-types/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAWSStorageReports operation
+#
+##############################################################################
+call_getAWSStorageReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by units offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/aws/storage/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createCostModels operation
+#
+##############################################################################
+call_createCostModels() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1524,175 +1779,19 @@ call_createCostModel() {
 
 ##############################################################################
 #
-# Call createProvider operation
+# Call deleteCostModel operation
 #
 ##############################################################################
-call_createProvider() {
+call_deleteCostModel() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=()
+    local path_parameter_names=(cost_model_uuid)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/api/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="POST"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the OpenAPI specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "ERROR: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
-# Call createUserPreference operation
-#
-##############################################################################
-call_createUserPreference() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="POST"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the OpenAPI specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "ERROR: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
-# Call destroyCostModel operation
-#
-##############################################################################
-call_destroyCostModel() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(source_type name)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1716,235 +1815,19 @@ call_destroyCostModel() {
 
 ##############################################################################
 #
-# Call destroyProvider operation
+# Call getCostModel operation
 #
 ##############################################################################
-call_destroyProvider() {
+call_getCostModel() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
+    local path_parameter_names=(cost_model_uuid)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(type name)
+    local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/api/cost-management/v1/providers/{uuid}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="DELETE"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call destroyUserPreference operation
-#
-##############################################################################
-call_destroyUserPreference() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{uuid}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="DELETE"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listAWSCosts operation
-#
-##############################################################################
-call_listAWSCosts() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset delta units)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/aws/costs/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listAWSInstanceTypes operation
-#
-##############################################################################
-call_listAWSInstanceTypes() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset delta units)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/aws/instance-types/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listAWSStorages operation
-#
-##############################################################################
-call_listAWSStorages() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset delta units)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/aws/storage/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listAWSTags operation
-#
-##############################################################################
-call_listAWSTags() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(filter key_only)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/tags/aws/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listCostModelMetricsMaps operation
-#
-##############################################################################
-call_listCostModelMetricsMaps() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/metrics/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1977,706 +1860,10 @@ call_listCostModels() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset source_type name)
+    local query_parameter_names=(offset limit provider_uuid source_type name)
     local path
 
-    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPAWSCosts operation
-#
-##############################################################################
-call_listOCPAWSCosts() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset delta units)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/infrastructures/aws/costs/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPAWSInstanceTypes operation
-#
-##############################################################################
-call_listOCPAWSInstanceTypes() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset delta units)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/infrastructures/aws/instance-types/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPAWSStorages operation
-#
-##############################################################################
-call_listOCPAWSStorages() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset delta units)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/infrastructures/aws/storage/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPAWSTags operation
-#
-##############################################################################
-call_listOCPAWSTags() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(filter key_only)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/tags/openshift/infrastructures/aws/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPCosts operation
-#
-##############################################################################
-call_listOCPCosts() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset units delta)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/costs/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPCpus operation
-#
-##############################################################################
-call_listOCPCpus() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset units delta)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/compute/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPMemorys operation
-#
-##############################################################################
-call_listOCPMemorys() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset units delta)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/memory/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPTags operation
-#
-##############################################################################
-call_listOCPTags() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(filter key_only)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/tags/openshift/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listOCPVolumes operation
-#
-##############################################################################
-call_listOCPVolumes() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset units delta)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/reports/openshift/volumes/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listProviders operation
-#
-##############################################################################
-call_listProviders() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset type name)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listStatus operation
-#
-##############################################################################
-call_listStatus() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/status/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call listUserPreferences operation
-#
-##############################################################################
-call_listUserPreferences() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=()
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(limit offset)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call partialUpdateCostModel operation
-#
-##############################################################################
-call_partialUpdateCostModel() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(source_type name)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{uuid}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="PATCH"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the OpenAPI specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "ERROR: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
-# Call partialUpdateUserPreference operation
-#
-##############################################################################
-call_partialUpdateUserPreference() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{uuid}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="PATCH"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    local body_json_curl=""
-
-    #
-    # Check if the user provided 'Content-type' headers in the
-    # command line. If not try to set them based on the OpenAPI specification
-    # if values produces and consumes are defined unambigously
-    #
-    if [[ -z $header_content_type ]]; then
-        header_content_type="application/json"
-    fi
-
-
-    if [[ -z $header_content_type && "$force" = false ]]; then
-        :
-        echo "ERROR: Request's content-type not specified!!!"
-        echo "This operation expects content-type in one of the following formats:"
-        echo -e "\\t- application/json"
-        echo ""
-        echo "Use '--content-type' to set proper content type"
-        exit 1
-    else
-        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
-    fi
-
-
-    #
-    # If we have received some body content over pipe, pass it from the
-    # temporary file to cURL
-    #
-    if [[ -n $body_content_temp_file ]]; then
-        if [[ "$print_curl" = true ]]; then
-            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        else
-            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
-        fi
-        rm "${body_content_temp_file}"
-    #
-    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
-    #
-    else
-        body_json_curl=$(body_parameters_to_json)
-        if [[ "$print_curl" = true ]]; then
-            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        else
-            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
-        fi
-    fi
-}
-
-##############################################################################
-#
-# Call retrieveCostModel operation
-#
-##############################################################################
-call_retrieveCostModel() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(source_type name)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{uuid}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call retrieveProvider operation
-#
-##############################################################################
-call_retrieveProvider() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=(type name)
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/providers/{uuid}/" path_parameter_names query_parameter_names); then
-        ERROR_MSG=$path
-        exit 1
-    fi
-    local method="GET"
-    local headers_curl
-    headers_curl=$(header_arguments_to_curl)
-    if [[ -n $header_accept ]]; then
-        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
-    fi
-
-    local basic_auth_option=""
-    if [[ -n $basic_auth_credential ]]; then
-        basic_auth_option="-u ${basic_auth_credential}"
-    fi
-    if [[ "$print_curl" = true ]]; then
-        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    else
-        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
-    fi
-}
-
-##############################################################################
-#
-# Call retrieveUserPreference operation
-#
-##############################################################################
-call_retrieveUserPreference() {
-    # ignore error about 'path_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
-    # ignore error about 'query_parameter_names' being unused; passed by reference
-    # shellcheck disable=SC2034
-    local query_parameter_names=()
-    local path
-
-    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2706,13 +1893,13 @@ call_retrieveUserPreference() {
 call_updateCostModel() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
+    local path_parameter_names=(cost_model_uuid)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(source_type name)
+    local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/api/cost-management/v1/costmodels/{uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/costmodels/{cost_model_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2778,19 +1965,787 @@ call_updateCostModel() {
 
 ##############################################################################
 #
+# Call getOpenShiftAWSCostReports operation
+#
+##############################################################################
+call_getOpenShiftAWSCostReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(delta filter group_by order_by offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/infrastructures/aws/costs/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftAWSInventoryInstanceReport operation
+#
+##############################################################################
+call_getOpenShiftAWSInventoryInstanceReport() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by units offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/infrastructures/aws/instance-types/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftAWSInventoryStorageReport operation
+#
+##############################################################################
+call_getOpenShiftAWSInventoryStorageReport() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by units offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/infrastructures/aws/storage/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftComputeReports operation
+#
+##############################################################################
+call_getOpenShiftComputeReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/compute/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftCostReports operation
+#
+##############################################################################
+call_getOpenShiftCostReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(delta filter group_by order_by offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/costs/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftMemoryReports operation
+#
+##############################################################################
+call_getOpenShiftMemoryReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/memory/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftVolumeReports operation
+#
+##############################################################################
+call_getOpenShiftVolumeReports() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter group_by order_by offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/reports/openshift/volumes/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createProvider operation
+#
+##############################################################################
+call_createProvider() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call deleteProvider operation
+#
+##############################################################################
+call_deleteProvider() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(uuid)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="DELETE"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getProvider operation
+#
+##############################################################################
+call_getProvider() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(uuid)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/{uuid}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call listProviders operation
+#
+##############################################################################
+call_listProviders() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(type name offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/providers/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getStatus operation
+#
+##############################################################################
+call_getStatus() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=()
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/status/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getAWSTagData operation
+#
+##############################################################################
+call_getAWSTagData() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter key_only offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/tags/aws/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftAWSTagData operation
+#
+##############################################################################
+call_getOpenShiftAWSTagData() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter key_only offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/tags/openshift/infrastructures/aws/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getOpenShiftTagData operation
+#
+##############################################################################
+call_getOpenShiftTagData() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(filter key_only offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/tags/openshift/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call createUserPreference operation
+#
+##############################################################################
+call_createUserPreference() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="POST"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    local body_json_curl=""
+
+    #
+    # Check if the user provided 'Content-type' headers in the
+    # command line. If not try to set them based on the OpenAPI specification
+    # if values produces and consumes are defined unambigously
+    #
+    if [[ -z $header_content_type ]]; then
+        header_content_type="application/json"
+    fi
+
+
+    if [[ -z $header_content_type && "$force" = false ]]; then
+        :
+        echo "ERROR: Request's content-type not specified!!!"
+        echo "This operation expects content-type in one of the following formats:"
+        echo -e "\\t- application/json"
+        echo ""
+        echo "Use '--content-type' to set proper content type"
+        exit 1
+    else
+        headers_curl="${headers_curl} -H 'Content-type: ${header_content_type}'"
+    fi
+
+
+    #
+    # If we have received some body content over pipe, pass it from the
+    # temporary file to cURL
+    #
+    if [[ -n $body_content_temp_file ]]; then
+        if [[ "$print_curl" = true ]]; then
+            echo "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        else
+            eval "cat ${body_content_temp_file} | curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\" -d @-"
+        fi
+        rm "${body_content_temp_file}"
+    #
+    # If not, try to build the content body from arguments KEY==VALUE and KEY:=VALUE
+    #
+    else
+        body_json_curl=$(body_parameters_to_json)
+        if [[ "$print_curl" = true ]]; then
+            echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        else
+            eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} ${body_json_curl} \"${host}${path}\""
+        fi
+    fi
+}
+
+##############################################################################
+#
+# Call deleteUserPreference operation
+#
+##############################################################################
+call_deleteUserPreference() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(pref_uuid)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="DELETE"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call getUserPreference operation
+#
+##############################################################################
+call_getUserPreference() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(pref_uuid)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
+# Call listUserPreferences operation
+#
+##############################################################################
+call_listUserPreferences() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=()
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=(offset limit  )
+    local path
+
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
 # Call updateUserPreference operation
 #
 ##############################################################################
 call_updateUserPreference() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local path_parameter_names=(uuid)
+    local path_parameter_names=(pref_uuid)
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=()
+    local query_parameter_names=(  )
     local path
 
-    if ! path=$(build_request_path "/api/cost-management/v1/preferences/{uuid}/" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/r/insights/platform/cost-management/v1/preferences/{pref_uuid}/" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -2951,95 +2906,86 @@ case $key in
         OFF=""
         result_color_table=( "" "" "" "" "" "" "" )
     ;;
-    createCostModel)
-    operation="createCostModel"
+    getAWSCostReports)
+    operation="getAWSCostReports"
     ;;
-    createProvider)
-    operation="createProvider"
+    getAWSInstanceReports)
+    operation="getAWSInstanceReports"
     ;;
-    createUserPreference)
-    operation="createUserPreference"
+    getAWSStorageReports)
+    operation="getAWSStorageReports"
     ;;
-    destroyCostModel)
-    operation="destroyCostModel"
+    createCostModels)
+    operation="createCostModels"
     ;;
-    destroyProvider)
-    operation="destroyProvider"
+    deleteCostModel)
+    operation="deleteCostModel"
     ;;
-    destroyUserPreference)
-    operation="destroyUserPreference"
-    ;;
-    listAWSCosts)
-    operation="listAWSCosts"
-    ;;
-    listAWSInstanceTypes)
-    operation="listAWSInstanceTypes"
-    ;;
-    listAWSStorages)
-    operation="listAWSStorages"
-    ;;
-    listAWSTags)
-    operation="listAWSTags"
-    ;;
-    listCostModelMetricsMaps)
-    operation="listCostModelMetricsMaps"
+    getCostModel)
+    operation="getCostModel"
     ;;
     listCostModels)
     operation="listCostModels"
     ;;
-    listOCPAWSCosts)
-    operation="listOCPAWSCosts"
+    updateCostModel)
+    operation="updateCostModel"
     ;;
-    listOCPAWSInstanceTypes)
-    operation="listOCPAWSInstanceTypes"
+    getOpenShiftAWSCostReports)
+    operation="getOpenShiftAWSCostReports"
     ;;
-    listOCPAWSStorages)
-    operation="listOCPAWSStorages"
+    getOpenShiftAWSInventoryInstanceReport)
+    operation="getOpenShiftAWSInventoryInstanceReport"
     ;;
-    listOCPAWSTags)
-    operation="listOCPAWSTags"
+    getOpenShiftAWSInventoryStorageReport)
+    operation="getOpenShiftAWSInventoryStorageReport"
     ;;
-    listOCPCosts)
-    operation="listOCPCosts"
+    getOpenShiftComputeReports)
+    operation="getOpenShiftComputeReports"
     ;;
-    listOCPCpus)
-    operation="listOCPCpus"
+    getOpenShiftCostReports)
+    operation="getOpenShiftCostReports"
     ;;
-    listOCPMemorys)
-    operation="listOCPMemorys"
+    getOpenShiftMemoryReports)
+    operation="getOpenShiftMemoryReports"
     ;;
-    listOCPTags)
-    operation="listOCPTags"
+    getOpenShiftVolumeReports)
+    operation="getOpenShiftVolumeReports"
     ;;
-    listOCPVolumes)
-    operation="listOCPVolumes"
+    createProvider)
+    operation="createProvider"
+    ;;
+    deleteProvider)
+    operation="deleteProvider"
+    ;;
+    getProvider)
+    operation="getProvider"
     ;;
     listProviders)
     operation="listProviders"
     ;;
-    listStatus)
-    operation="listStatus"
+    getStatus)
+    operation="getStatus"
+    ;;
+    getAWSTagData)
+    operation="getAWSTagData"
+    ;;
+    getOpenShiftAWSTagData)
+    operation="getOpenShiftAWSTagData"
+    ;;
+    getOpenShiftTagData)
+    operation="getOpenShiftTagData"
+    ;;
+    createUserPreference)
+    operation="createUserPreference"
+    ;;
+    deleteUserPreference)
+    operation="deleteUserPreference"
+    ;;
+    getUserPreference)
+    operation="getUserPreference"
     ;;
     listUserPreferences)
     operation="listUserPreferences"
-    ;;
-    partialUpdateCostModel)
-    operation="partialUpdateCostModel"
-    ;;
-    partialUpdateUserPreference)
-    operation="partialUpdateUserPreference"
-    ;;
-    retrieveCostModel)
-    operation="retrieveCostModel"
-    ;;
-    retrieveProvider)
-    operation="retrieveProvider"
-    ;;
-    retrieveUserPreference)
-    operation="retrieveUserPreference"
-    ;;
-    updateCostModel)
-    operation="updateCostModel"
     ;;
     updateUserPreference)
     operation="updateUserPreference"
@@ -3121,95 +3067,86 @@ fi
 
 # Run cURL command based on the operation ID
 case $operation in
-    createCostModel)
-    call_createCostModel
+    getAWSCostReports)
+    call_getAWSCostReports
     ;;
-    createProvider)
-    call_createProvider
+    getAWSInstanceReports)
+    call_getAWSInstanceReports
     ;;
-    createUserPreference)
-    call_createUserPreference
+    getAWSStorageReports)
+    call_getAWSStorageReports
     ;;
-    destroyCostModel)
-    call_destroyCostModel
+    createCostModels)
+    call_createCostModels
     ;;
-    destroyProvider)
-    call_destroyProvider
+    deleteCostModel)
+    call_deleteCostModel
     ;;
-    destroyUserPreference)
-    call_destroyUserPreference
-    ;;
-    listAWSCosts)
-    call_listAWSCosts
-    ;;
-    listAWSInstanceTypes)
-    call_listAWSInstanceTypes
-    ;;
-    listAWSStorages)
-    call_listAWSStorages
-    ;;
-    listAWSTags)
-    call_listAWSTags
-    ;;
-    listCostModelMetricsMaps)
-    call_listCostModelMetricsMaps
+    getCostModel)
+    call_getCostModel
     ;;
     listCostModels)
     call_listCostModels
     ;;
-    listOCPAWSCosts)
-    call_listOCPAWSCosts
+    updateCostModel)
+    call_updateCostModel
     ;;
-    listOCPAWSInstanceTypes)
-    call_listOCPAWSInstanceTypes
+    getOpenShiftAWSCostReports)
+    call_getOpenShiftAWSCostReports
     ;;
-    listOCPAWSStorages)
-    call_listOCPAWSStorages
+    getOpenShiftAWSInventoryInstanceReport)
+    call_getOpenShiftAWSInventoryInstanceReport
     ;;
-    listOCPAWSTags)
-    call_listOCPAWSTags
+    getOpenShiftAWSInventoryStorageReport)
+    call_getOpenShiftAWSInventoryStorageReport
     ;;
-    listOCPCosts)
-    call_listOCPCosts
+    getOpenShiftComputeReports)
+    call_getOpenShiftComputeReports
     ;;
-    listOCPCpus)
-    call_listOCPCpus
+    getOpenShiftCostReports)
+    call_getOpenShiftCostReports
     ;;
-    listOCPMemorys)
-    call_listOCPMemorys
+    getOpenShiftMemoryReports)
+    call_getOpenShiftMemoryReports
     ;;
-    listOCPTags)
-    call_listOCPTags
+    getOpenShiftVolumeReports)
+    call_getOpenShiftVolumeReports
     ;;
-    listOCPVolumes)
-    call_listOCPVolumes
+    createProvider)
+    call_createProvider
+    ;;
+    deleteProvider)
+    call_deleteProvider
+    ;;
+    getProvider)
+    call_getProvider
     ;;
     listProviders)
     call_listProviders
     ;;
-    listStatus)
-    call_listStatus
+    getStatus)
+    call_getStatus
+    ;;
+    getAWSTagData)
+    call_getAWSTagData
+    ;;
+    getOpenShiftAWSTagData)
+    call_getOpenShiftAWSTagData
+    ;;
+    getOpenShiftTagData)
+    call_getOpenShiftTagData
+    ;;
+    createUserPreference)
+    call_createUserPreference
+    ;;
+    deleteUserPreference)
+    call_deleteUserPreference
+    ;;
+    getUserPreference)
+    call_getUserPreference
     ;;
     listUserPreferences)
     call_listUserPreferences
-    ;;
-    partialUpdateCostModel)
-    call_partialUpdateCostModel
-    ;;
-    partialUpdateUserPreference)
-    call_partialUpdateUserPreference
-    ;;
-    retrieveCostModel)
-    call_retrieveCostModel
-    ;;
-    retrieveProvider)
-    call_retrieveProvider
-    ;;
-    retrieveUserPreference)
-    call_retrieveUserPreference
-    ;;
-    updateCostModel)
-    call_updateCostModel
     ;;
     updateUserPreference)
     call_updateUserPreference

@@ -68,81 +68,81 @@ _()
     # The list of available operation in the REST service
     # It's modelled as an associative array for efficient key lookup
     declare -A operations
-    operations["createCostModel"]=1
-    operations["createProvider"]=1
-    operations["createUserPreference"]=1
-    operations["destroyCostModel"]=1
-    operations["destroyProvider"]=1
-    operations["destroyUserPreference"]=1
-    operations["listAWSCosts"]=1
-    operations["listAWSInstanceTypes"]=1
-    operations["listAWSStorages"]=1
-    operations["listAWSTags"]=1
-    operations["listCostModelMetricsMaps"]=1
+    operations["getAWSCostReports"]=1
+    operations["getAWSInstanceReports"]=1
+    operations["getAWSStorageReports"]=1
+    operations["createCostModels"]=1
+    operations["deleteCostModel"]=1
+    operations["getCostModel"]=1
     operations["listCostModels"]=1
-    operations["listOCPAWSCosts"]=1
-    operations["listOCPAWSInstanceTypes"]=1
-    operations["listOCPAWSStorages"]=1
-    operations["listOCPAWSTags"]=1
-    operations["listOCPCosts"]=1
-    operations["listOCPCpus"]=1
-    operations["listOCPMemorys"]=1
-    operations["listOCPTags"]=1
-    operations["listOCPVolumes"]=1
-    operations["listProviders"]=1
-    operations["listStatus"]=1
-    operations["listUserPreferences"]=1
-    operations["partialUpdateCostModel"]=1
-    operations["partialUpdateUserPreference"]=1
-    operations["retrieveCostModel"]=1
-    operations["retrieveProvider"]=1
-    operations["retrieveUserPreference"]=1
     operations["updateCostModel"]=1
+    operations["getOpenShiftAWSCostReports"]=1
+    operations["getOpenShiftAWSInventoryInstanceReport"]=1
+    operations["getOpenShiftAWSInventoryStorageReport"]=1
+    operations["getOpenShiftComputeReports"]=1
+    operations["getOpenShiftCostReports"]=1
+    operations["getOpenShiftMemoryReports"]=1
+    operations["getOpenShiftVolumeReports"]=1
+    operations["createProvider"]=1
+    operations["deleteProvider"]=1
+    operations["getProvider"]=1
+    operations["listProviders"]=1
+    operations["getStatus"]=1
+    operations["getAWSTagData"]=1
+    operations["getOpenShiftAWSTagData"]=1
+    operations["getOpenShiftTagData"]=1
+    operations["createUserPreference"]=1
+    operations["deleteUserPreference"]=1
+    operations["getUserPreference"]=1
+    operations["listUserPreferences"]=1
     operations["updateUserPreference"]=1
 
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["createCostModel"]=""
+    operation_parameters["getAWSCostReports"]="delta= filter= group_by= order_by= offset= limit= "
+    operation_parameters["getAWSInstanceReports"]="filter= group_by= order_by= units= offset= limit= "
+    operation_parameters["getAWSStorageReports"]="filter= group_by= order_by= units= offset= limit= "
+    operation_parameters["createCostModels"]=""
+    operation_parameters["deleteCostModel"]="cost_model_uuid= "
+    operation_parameters["getCostModel"]="cost_model_uuid= "
+    operation_parameters["listCostModels"]="offset= limit= provider_uuid= source_type= name= "
+    operation_parameters["updateCostModel"]="cost_model_uuid= "
+    operation_parameters["getOpenShiftAWSCostReports"]="delta= filter= group_by= order_by= offset= limit= "
+    operation_parameters["getOpenShiftAWSInventoryInstanceReport"]="filter= group_by= order_by= units= offset= limit= "
+    operation_parameters["getOpenShiftAWSInventoryStorageReport"]="filter= group_by= order_by= units= offset= limit= "
+    operation_parameters["getOpenShiftComputeReports"]="filter= group_by= order_by= offset= limit= "
+    operation_parameters["getOpenShiftCostReports"]="delta= filter= group_by= order_by= offset= limit= "
+    operation_parameters["getOpenShiftMemoryReports"]="filter= group_by= order_by= offset= limit= "
+    operation_parameters["getOpenShiftVolumeReports"]="filter= group_by= order_by= offset= limit= "
     operation_parameters["createProvider"]=""
+    operation_parameters["deleteProvider"]="uuid= "
+    operation_parameters["getProvider"]="uuid= "
+    operation_parameters["listProviders"]="type= name= offset= limit= "
+    operation_parameters["getStatus"]=""
+    operation_parameters["getAWSTagData"]="filter= key_only= offset= limit= "
+    operation_parameters["getOpenShiftAWSTagData"]="filter= key_only= offset= limit= "
+    operation_parameters["getOpenShiftTagData"]="filter= key_only= offset= limit= "
     operation_parameters["createUserPreference"]=""
-    operation_parameters["destroyCostModel"]="uuid= source_type= name= "
-    operation_parameters["destroyProvider"]="uuid= type= name= "
-    operation_parameters["destroyUserPreference"]="uuid= "
-    operation_parameters["listAWSCosts"]="limit= offset= delta= units= "
-    operation_parameters["listAWSInstanceTypes"]="limit= offset= delta= units= "
-    operation_parameters["listAWSStorages"]="limit= offset= delta= units= "
-    operation_parameters["listAWSTags"]="filter= key_only= "
-    operation_parameters["listCostModelMetricsMaps"]="limit= offset= "
-    operation_parameters["listCostModels"]="limit= offset= source_type= name= "
-    operation_parameters["listOCPAWSCosts"]="limit= offset= delta= units= "
-    operation_parameters["listOCPAWSInstanceTypes"]="limit= offset= delta= units= "
-    operation_parameters["listOCPAWSStorages"]="limit= offset= delta= units= "
-    operation_parameters["listOCPAWSTags"]="filter= key_only= "
-    operation_parameters["listOCPCosts"]="limit= offset= units= delta= "
-    operation_parameters["listOCPCpus"]="limit= offset= units= delta= "
-    operation_parameters["listOCPMemorys"]="limit= offset= units= delta= "
-    operation_parameters["listOCPTags"]="filter= key_only= "
-    operation_parameters["listOCPVolumes"]="limit= offset= units= delta= "
-    operation_parameters["listProviders"]="limit= offset= type= name= "
-    operation_parameters["listStatus"]=""
-    operation_parameters["listUserPreferences"]="limit= offset= "
-    operation_parameters["partialUpdateCostModel"]="uuid= source_type= name= "
-    operation_parameters["partialUpdateUserPreference"]="uuid= "
-    operation_parameters["retrieveCostModel"]="uuid= source_type= name= "
-    operation_parameters["retrieveProvider"]="uuid= type= name= "
-    operation_parameters["retrieveUserPreference"]="uuid= "
-    operation_parameters["updateCostModel"]="uuid= source_type= name= "
-    operation_parameters["updateUserPreference"]="uuid= "
+    operation_parameters["deleteUserPreference"]="pref_uuid= "
+    operation_parameters["getUserPreference"]="pref_uuid= "
+    operation_parameters["listUserPreferences"]="offset= limit= "
+    operation_parameters["updateUserPreference"]="pref_uuid= "
 
     # An associative array of possible values for enum parameters
     declare -A operation_parameters_enum_values
-    operation_parameters_enum_values["listAWSTags::key_only"]="true false"
-    operation_parameters_enum_values["listAWSTags::key_only"]="true false"
-    operation_parameters_enum_values["listOCPAWSTags::key_only"]="true false"
-    operation_parameters_enum_values["listOCPAWSTags::key_only"]="true false"
-    operation_parameters_enum_values["listOCPTags::key_only"]="true false"
-    operation_parameters_enum_values["listOCPTags::key_only"]="true false"
+    operation_parameters_enum_values["getAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftAWSTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftTagData::key_only"]="true false"
+    operation_parameters_enum_values["getOpenShiftTagData::key_only"]="true false"
 
     #
     # Check if this is OSX and use special __osx_init_completion function

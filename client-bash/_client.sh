@@ -298,7 +298,7 @@ case $state in
     _values "Operations" \
             "getAWSCostReports[Query to obtain cost reports]" \
             "getAWSInstanceReports[Query to obtain AWS instance type data]" \
-            "getAWSStorageReports[Query to obtain AWS storage data]"             "createCostModels[Create a new cost model.]" \
+            "getAWSStorageReports[Query to obtain AWS storage data]"             "createCostModel[Create a new cost model.]" \
             "deleteCostModel[Delete a Cost Model]" \
             "getCostModel[Get a Cost Model.]" \
             "listCostModels[List the cost models]" \
@@ -360,7 +360,7 @@ case $state in
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;
-      createCostModels)
+      createCostModel)
         local -a _op_arguments
         _op_arguments=(
                               )

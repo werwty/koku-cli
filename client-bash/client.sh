@@ -113,7 +113,7 @@ operation_parameters_minimum_occurrences["getAWSStorageReports:::order_by"]=0
 operation_parameters_minimum_occurrences["getAWSStorageReports:::units"]=0
 operation_parameters_minimum_occurrences["getAWSStorageReports:::offset"]=0
 operation_parameters_minimum_occurrences["getAWSStorageReports:::limit"]=0
-operation_parameters_minimum_occurrences["createCostModels:::CostModel"]=1
+operation_parameters_minimum_occurrences["createCostModel:::CostModel"]=1
 operation_parameters_minimum_occurrences["deleteCostModel:::cost_model_uuid"]=1
 operation_parameters_minimum_occurrences["getCostModel:::cost_model_uuid"]=1
 operation_parameters_minimum_occurrences["listCostModels:::offset"]=0
@@ -214,7 +214,7 @@ operation_parameters_maximum_occurrences["getAWSStorageReports:::order_by"]=0
 operation_parameters_maximum_occurrences["getAWSStorageReports:::units"]=0
 operation_parameters_maximum_occurrences["getAWSStorageReports:::offset"]=0
 operation_parameters_maximum_occurrences["getAWSStorageReports:::limit"]=0
-operation_parameters_maximum_occurrences["createCostModels:::CostModel"]=0
+operation_parameters_maximum_occurrences["createCostModel:::CostModel"]=0
 operation_parameters_maximum_occurrences["deleteCostModel:::cost_model_uuid"]=0
 operation_parameters_maximum_occurrences["getCostModel:::cost_model_uuid"]=0
 operation_parameters_maximum_occurrences["listCostModels:::offset"]=0
@@ -312,7 +312,7 @@ operation_parameters_collection_type["getAWSStorageReports:::order_by"]=""
 operation_parameters_collection_type["getAWSStorageReports:::units"]=""
 operation_parameters_collection_type["getAWSStorageReports:::offset"]=""
 operation_parameters_collection_type["getAWSStorageReports:::limit"]=""
-operation_parameters_collection_type["createCostModels:::CostModel"]=""
+operation_parameters_collection_type["createCostModel:::CostModel"]=""
 operation_parameters_collection_type["deleteCostModel:::cost_model_uuid"]=""
 operation_parameters_collection_type["getCostModel:::cost_model_uuid"]=""
 operation_parameters_collection_type["listCostModels:::offset"]=""
@@ -761,7 +761,7 @@ echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[costModel]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}createCostModels${OFF};Create a new cost model. (AUTH)
+  ${CYAN}createCostModel${OFF};Create a new cost model. (AUTH)
   ${CYAN}deleteCostModel${OFF};Delete a Cost Model (AUTH)
   ${CYAN}getCostModel${OFF};Get a Cost Model. (AUTH)
   ${CYAN}listCostModels${OFF};List the cost models
@@ -876,11 +876,11 @@ print_getAWSCostReports_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Toggle to include delta values in report.${YELLOW} Specify as: delta=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -959,15 +959,15 @@ print_getAWSStorageReports_help() {
 }
 ##############################################################################
 #
-# Print help for createCostModels operation
+# Print help for createCostModel operation
 #
 ##############################################################################
-print_createCostModels_help() {
+print_createCostModel_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}createCostModels - Create a new cost model.${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}createCostModel - Create a new cost model.${OFF}${BLUE}(AUTH - BASIC)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - Rate to add to a Rate" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -1087,11 +1087,11 @@ print_getOpenShiftAWSCostReports_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Toggle to include delta values in report.${YELLOW} Specify as: delta=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1209,11 +1209,11 @@ print_getOpenShiftCostReports_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}delta${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Toggle to include delta values in report.${YELLOW} Specify as: delta=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
+    echo -e "  * ${GREEN}filter${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The filter to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: filter=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
+    echo -e "  * ${GREEN}group_by${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The grouping to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: group_by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
+    echo -e "  * ${GREEN}order_by${OFF} ${BLUE}[map]${OFF} ${CYAN}(default: null)${OFF} - The ordering to apply to the report as a URL encoded dictionary.${YELLOW} Specify as: order_by=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}offset${OFF} ${BLUE}[integer]${OFF} ${CYAN}(default: 0)${OFF} - Parameter for selecting the offset of data.${YELLOW} Specify as: offset=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -1701,10 +1701,10 @@ call_getAWSStorageReports() {
 
 ##############################################################################
 #
-# Call createCostModels operation
+# Call createCostModel operation
 #
 ##############################################################################
-call_createCostModels() {
+call_createCostModel() {
     # ignore error about 'path_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
     local path_parameter_names=()
@@ -2915,8 +2915,8 @@ case $key in
     getAWSStorageReports)
     operation="getAWSStorageReports"
     ;;
-    createCostModels)
-    operation="createCostModels"
+    createCostModel)
+    operation="createCostModel"
     ;;
     deleteCostModel)
     operation="deleteCostModel"
@@ -3076,8 +3076,8 @@ case $operation in
     getAWSStorageReports)
     call_getAWSStorageReports
     ;;
-    createCostModels)
-    call_createCostModels
+    createCostModel)
+    call_createCostModel
     ;;
     deleteCostModel)
     call_deleteCostModel

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** |  | [optional] [default to null]
-**description** | **string** |  | [optional] [default to null]
+**name** | **string** |  | [default to null]
+**description** | **string** |  | [default to null]
 **sourceUnderscoretype** | **string** |  | [default to null]
 **providerUnderscoreuuids** | **array[integer]** |  | [optional] [default to null]
 **rates** | [**array[Rate]**](Rate.md) |  | [optional] [default to null]

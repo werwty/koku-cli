@@ -26,9 +26,9 @@ Query to obtain cost reports
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **delta** | **string** | Toggle to include delta values in report. | [optional] [default to null]
- **filter** | **string** | The filter to apply to the report as a URL encoded dictionary. | [optional] [default to null]
- **groupBy** | **string** | The grouping to apply to the report as a URL encoded dictionary. | [optional] [default to null]
- **orderBy** | **string** | The ordering to apply to the report as a URL encoded dictionary. | [optional] [default to null]
+ **filter** | [**map**](.md) | The filter to apply to the report as a URL encoded dictionary. | [optional] [default to null]
+ **groupBy** | [**map**](.md) | The grouping to apply to the report as a URL encoded dictionary. | [optional] [default to null]
+ **orderBy** | [**map**](.md) | The ordering to apply to the report as a URL encoded dictionary. | [optional] [default to null]
  **offset** | **integer** | Parameter for selecting the offset of data. | [optional] [default to 0]
  **limit** | **integer** | Parameter for selecting the amount of data in a returned. | [optional] [default to 100]
 

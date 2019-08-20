@@ -103,7 +103,7 @@ Class | Method | HTTP request | Description
 *AWSReportApi* | [**getAWSCostReports**](docs/AWSReportApi.md#getawscostreports) | **GET** /reports/aws/costs/ | Query to obtain cost reports
 *AWSReportApi* | [**getAWSInstanceReports**](docs/AWSReportApi.md#getawsinstancereports) | **GET** /reports/aws/instance-types/ | Query to obtain AWS instance type data
 *AWSReportApi* | [**getAWSStorageReports**](docs/AWSReportApi.md#getawsstoragereports) | **GET** /reports/aws/storage/ | Query to obtain AWS storage data
-*CostModelApi* | [**createCostModels**](docs/CostModelApi.md#createcostmodels) | **POST** /costmodels/ | Create a new cost model.
+*CostModelApi* | [**createCostModel**](docs/CostModelApi.md#createcostmodel) | **POST** /costmodels/ | Create a new cost model.
 *CostModelApi* | [**deleteCostModel**](docs/CostModelApi.md#deletecostmodel) | **DELETE** /costmodels/{cost_model_uuid}/ | Delete a Cost Model
 *CostModelApi* | [**getCostModel**](docs/CostModelApi.md#getcostmodel) | **GET** /costmodels/{cost_model_uuid}/ | Get a Cost Model.
 *CostModelApi* | [**listCostModels**](docs/CostModelApi.md#listcostmodels) | **GET** /costmodels/ | List the cost models

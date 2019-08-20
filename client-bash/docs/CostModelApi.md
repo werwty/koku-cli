@@ -4,7 +4,7 @@ All URIs are relative to */api/cost-management/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCostModels**](CostModelApi.md#createCostModels) | **POST** /costmodels/ | Create a new cost model.
+[**createCostModel**](CostModelApi.md#createCostModel) | **POST** /costmodels/ | Create a new cost model.
 [**deleteCostModel**](CostModelApi.md#deleteCostModel) | **DELETE** /costmodels/{cost_model_uuid}/ | Delete a Cost Model
 [**getCostModel**](CostModelApi.md#getCostModel) | **GET** /costmodels/{cost_model_uuid}/ | Get a Cost Model.
 [**listCostModels**](CostModelApi.md#listCostModels) | **GET** /costmodels/ | List the cost models
@@ -12,14 +12,14 @@ Method | HTTP request | Description
 
 
 
-## createCostModels
+## createCostModel
 
 Create a new cost model.
 
 ### Example
 
 ```bash
- createCostModels
+ createCostModel
 ```
 
 ### Parameters
@@ -27,7 +27,7 @@ Create a new cost model.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **costModel** | [**CostModel**](CostModel.md) | Rate to add to a Rate |
+ **costModel** | [**CostModel**](CostModel.md) |  |
 
 ### Return type
 

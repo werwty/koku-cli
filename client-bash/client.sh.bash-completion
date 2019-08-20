@@ -71,7 +71,7 @@ _()
     operations["getAWSCostReports"]=1
     operations["getAWSInstanceReports"]=1
     operations["getAWSStorageReports"]=1
-    operations["createCostModels"]=1
+    operations["createCostModel"]=1
     operations["deleteCostModel"]=1
     operations["getCostModel"]=1
     operations["listCostModels"]=1
@@ -103,7 +103,7 @@ _()
     operation_parameters["getAWSCostReports"]="delta= filter= group_by= order_by= offset= limit= "
     operation_parameters["getAWSInstanceReports"]="filter= group_by= order_by= units= offset= limit= "
     operation_parameters["getAWSStorageReports"]="filter= group_by= order_by= units= offset= limit= "
-    operation_parameters["createCostModels"]=""
+    operation_parameters["createCostModel"]=""
     operation_parameters["deleteCostModel"]="cost_model_uuid= "
     operation_parameters["getCostModel"]="cost_model_uuid= "
     operation_parameters["listCostModels"]="offset= limit= provider_uuid= source_type= name= "
